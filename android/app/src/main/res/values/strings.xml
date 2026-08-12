@@ -14,6 +14,30 @@
     <string name="permission_error">权限异常，点击修复</string>
     <string name="skip_toast">已跳过可疑内容</string>
 
+    <!-- 引导流程 -->
+    <string name="onboarding_step_welcome">步骤 1 / 4</string>
+    <string name="onboarding_step_intro">步骤 2 / 4</string>
+    <string name="onboarding_step_permission">步骤 3 / 4</string>
+    <string name="onboarding_step_done">步骤 4 / 4</string>
+    <string name="onboarding_start">开始使用</string>
+    <string name="onboarding_welcome_desc">帮您自动跳过\n谣言、骗局和煽动性短视频</string>
+    <string name="onboarding_intro_title">功能介绍</string>
+    <string name="onboarding_next">下一步</string>
+    <string name="onboarding_permission_title">开启无障碍权限</string>
+    <string name="onboarding_feature_detect_title">自动识别</string>
+    <string name="onboarding_feature_detect_desc">检测视频标题中的谣言、养生骗局关键词</string>
+    <string name="onboarding_feature_skip_title">自动跳过</string>
+    <string name="onboarding_feature_skip_desc">发现可疑内容时滑到下一个视频</string>
+    <string name="onboarding_feature_family_title">家人可管理</string>
+    <string name="onboarding_feature_family_desc">子女可添加新的屏蔽词和黑名单</string>
+    <string name="onboarding_permission_desc">需要开启「无障碍服务」才能读取抖音视频标题</string>
+    <string name="onboarding_permission_granted">权限已开启，即将进入下一步…</string>
+    <string name="onboarding_open_permission">去开启权限</string>
+    <string name="onboarding_permission_continue">我已开启，继续</string>
+    <string name="onboarding_done_success">守护已开启\n设置完成</string>
+    <string name="onboarding_done_pending">权限尚未开启\n请返回开启无障碍服务</string>
+    <string name="onboarding_enter_home">进入首页</string>
+
     <!-- 拦截记录 -->
     <string name="empty_records">暂无拦截记录</string>
 
@@ -28,6 +52,7 @@
     <string name="family_title">子女管理</string>
     <string name="family_keywords">屏蔽词管理</string>
     <string name="family_blacklist">账号黑名单</string>
+    <string name="family_whitelist">白名单</string>
     <string name="family_export">导出词库</string>
     <string name="family_keyword_count">屏蔽词</string>
     <string name="family_blacklist_count">黑名单</string>
@@ -46,6 +71,23 @@
     <string name="blacklist_title">账号黑名单</string>
     <string name="blacklist_add">添加账号</string>
     <string name="blacklist_add_hint">输入作者昵称</string>
+
+    <!-- 白名单 -->
+    <string name="whitelist_title">白名单</string>
+    <string name="whitelist_add">添加白名单</string>
+    <string name="whitelist_add_keyword">添加关键词白名单</string>
+    <string name="whitelist_add_author">添加作者白名单</string>
+    <string name="whitelist_type_keyword">关键词白名单</string>
+    <string name="whitelist_type_author">作者白名单</string>
+    <string name="whitelist_value_hint">输入关键词或作者昵称</string>
+    <string name="export_success">已导出到 Downloads：%1$s</string>
+    <string name="family_import">导入词库</string>
+    <string name="import_invalid">备份文件无效</string>
+
+    <!-- 使用帮助 -->
+    <string name="help_title">使用帮助</string>
+    <string name="settings_help">使用帮助</string>
+    <string name="help_content">银龄守护使用说明\n\n【首次使用】\n1. 完成引导流程，开启无障碍权限\n2. 让子女设置管理密码，检查屏蔽词库\n3. 打开抖音，守护将自动在后台运行\n\n【日常使用】\n• 首页可查看守护状态、今日拦截数和最近拦截\n• 刷抖音时，命中屏蔽词或黑名单的视频会自动跳过\n• 跳过时可能显示「已跳过可疑内容」提示\n\n【拦截记录】\n• 可按今天/昨天/全部查看历史拦截\n• 每条记录包含时间、标题、关键词和分类\n\n【子女管理】\n• 需输入密码进入\n• 可添加/删除屏蔽词，按分类筛选\n• 可将可疑作者加入黑名单\n• 白名单中的关键词或作者不会被拦截\n• 支持导出/导入词库备份（JSON 文件）\n\n【关闭守护】\n• 在设置页关闭守护开关需输入子女密码\n• 关闭后不会自动跳过视频，已有记录保留\n\n【隐私说明】\n• 所有数据仅存本地，不上传云端\n• 仅读取抖音视频标题和作者昵称\n• 不收集账号、视频内容或个人隐私</string>
 
     <!-- 密码 -->
     <string name="password_title">请输入子女密码</string>

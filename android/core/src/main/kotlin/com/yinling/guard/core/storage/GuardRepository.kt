@@ -4,8 +4,10 @@ import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.yinling.guard.core.model.AppConfig
 import com.yinling.guard.core.model.BackupFile
+import com.yinling.guard.core.model.BlacklistAccount
 import com.yinling.guard.core.model.BlacklistStore
 import com.yinling.guard.core.model.BlockLogStore
+import com.yinling.guard.core.model.ImportBackupResult
 import com.yinling.guard.core.model.KeywordEntry
 import com.yinling.guard.core.model.KeywordStore
 import com.yinling.guard.core.model.WhitelistStore
@@ -132,6 +134,70 @@ class GuardRepository(
             blacklist = loadBlacklist().accounts,
             whitelist = loadWhitelist().entries
         )
+    }
+
+    fun importBackup(backup: BackupFile): ImportBackupResult {
+        var addedKeywords = 0
+        var addedBlacklist = 0
+        var addedWhitelist = 0
+
+        val keywordStore = loadKeywords()
+        val existingKeywordIds = keywordStore.keywords.map { it.id }.toSet()
+        val existingWords = keywordStore.keywords.associateBy { it.word.lowercase() }
+        val mergedKeywords = keywordStore.keywords.toMutableList()
+        backup.keywords.forEach { item ->
+            if (item.id in existingKeywordIds) return@forEach
+            if (existingWords.containsKey(item.word.lowercase())) return@forEach
+            mergedKeywords.add(item)
+            addedKeywords++
+        }
+        if (addedKeywords > 0) {
+            saveKeywords(keywordStore.copy(keywords = mergedKeywords, updatedAt = isoNow()))
+        }
+
+        val blacklistStore = loadBlacklist()
+        val existingBlacklistIds = blacklistStore.accounts.map { it.id }.toSet()
+        val mergedBlacklist = blacklistStore.accounts.toMutableList()
+        backup.blacklist.forEach { item ->
+            if (item.id in existingBlacklistIds) return@forEach
+            mergedBlacklist.add(item)
+            addedBlacklist++
+        }
+        if (addedBlacklist > 0) {
+            saveBlacklist(blacklistStore.copy(accounts = mergedBlacklist, updatedAt = isoNow()))
+        }
+
+        val whitelistStore = loadWhitelist()
+        val existingWhitelistIds = whitelistStore.entries.map { it.id }.toSet()
+        val mergedWhitelist = whitelistStore.entries.toMutableList()
+        backup.whitelist.forEach { item ->
+            if (item.id in existingWhitelistIds) return@forEach
+            mergedWhitelist.add(item)
+            addedWhitelist++
+        }
+        if (addedWhitelist > 0) {
+            saveWhitelist(whitelistStore.copy(entries = mergedWhitelist, updatedAt = isoNow()))
+        }
+
+        val message = buildString {
+            append("导入完成：")
+            append("$addedKeywords 个屏蔽词")
+            append("、$addedBlacklist 个黑名单")
+            append("、$addedWhitelist 个白名单")
+        }
+        return ImportBackupResult(
+            success = true,
+            message = message,
+            addedKeywords = addedKeywords,
+            addedBlacklist = addedBlacklist,
+            addedWhitelist = addedWhitelist
+        )
+    }
+
+    fun parseBackupJson(json: String): BackupFile {
+        val backup = gson.fromJson(json, BackupFile::class.java)
+        require(backup.exportedAt.isNotBlank()) { "invalid backup" }
+        return backup
     }
 
     fun keywordCount(): Int = loadKeywords().keywords.size

@@ -15,16 +15,19 @@ android/
 
 环境要求：JDK 17
 
-```powershell
-$env:JAVA_HOME = "C:\Program Files\Eclipse Adoptium\jdk-17.0.20.8-hotspot"
-python android/scripts/run_all_tests.py
-```
-
-核心单元测试可在 Cursor 内运行。Robolectric UI 测试需 Gradle，请在 **Windows Terminal** 中执行：
+**Core 单元测试**（122+ 个，可在 Cursor 内通过 Python 脚本运行）：
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File D:\test\Cursor\android\scripts\build.ps1 -Task test
+python android/scripts/run_core_tests.py
 ```
+
+**App Robolectric UI 测试**（Fragment + Espresso，需 Gradle，请在 Windows Terminal 执行）：
+
+```powershell
+powershell -ExecutionPolicy Bypass -File android/scripts/build.ps1 -Task test
+```
+
+UI 测试覆盖：引导页、首页、拦截记录、设置、帮助页。
 
 ## 构建 APK
 

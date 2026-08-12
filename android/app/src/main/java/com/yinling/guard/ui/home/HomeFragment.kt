@@ -4,11 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.yinling.guard.R
+import com.yinling.guard.core.model.BlockLogEntry
 import com.yinling.guard.data.ServiceLocator
 import com.yinling.guard.databinding.FragmentHomeBinding
 import com.yinling.guard.util.AccessibilityUtils
@@ -44,6 +44,13 @@ class HomeFragment : Fragment() {
             else -> getString(R.string.guard_off)
         }
 
+        val dotRes = when {
+            !state.accessibilityGranted -> R.drawable.status_dot_error
+            state.guardEnabled -> R.drawable.status_dot_active
+            else -> R.drawable.status_dot_inactive
+        }
+        binding.statusDot.setImageResource(dotRes)
+
         binding.statusCard.setOnClickListener {
             if (!state.accessibilityGranted) {
                 AccessibilityUtils.openAccessibilitySettings(requireContext())
@@ -58,9 +65,7 @@ class HomeFragment : Fragment() {
         if (state.recentBlocks.isEmpty()) {
             addRecentLine("暂无拦截")
         } else {
-            state.recentBlocks.forEach { entry ->
-                addRecentLine("${entry.title}  [${entry.keyword}]")
-            }
+            state.recentBlocks.forEach { entry -> addRecentBlock(entry) }
         }
     }
 
@@ -71,6 +76,19 @@ class HomeFragment : Fragment() {
         }
         binding.recentContainer.addView(tv)
     }
+
+    private fun addRecentBlock(entry: BlockLogEntry) {
+        val view = layoutInflater.inflate(R.layout.item_recent_block, binding.recentContainer, false)
+        view.findViewById<TextView>(R.id.tv_title).text = truncateTitle(entry.title)
+        view.findViewById<TextView>(R.id.tv_keyword_tag).apply {
+            text = entry.keyword
+            setBackgroundResource(R.drawable.tag_background)
+        }
+        binding.recentContainer.addView(view)
+    }
+
+    private fun truncateTitle(title: String, maxLen: Int = 20): String =
+        if (title.length <= maxLen) title else title.take(maxLen) + "…"
 
     override fun onDestroyView() {
         super.onDestroyView()

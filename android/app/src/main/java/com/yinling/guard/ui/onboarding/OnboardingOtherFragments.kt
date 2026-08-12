@@ -4,82 +4,151 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.LinearLayout
-import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.yinling.guard.R
+import com.yinling.guard.data.ServiceLocator
+import com.yinling.guard.databinding.FragmentOnboardingDoneBinding
+import com.yinling.guard.databinding.FragmentOnboardingIntroBinding
+import com.yinling.guard.databinding.FragmentOnboardingPermissionBinding
+import com.yinling.guard.databinding.ItemOnboardingFeatureBinding
+import com.yinling.guard.util.AccessibilityUtils
+import java.time.LocalDate
 
 class OnboardingIntroFragment : Fragment() {
+    private var _binding: FragmentOnboardingIntroBinding? = null
+    private val binding get() = _binding!!
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        val layout = LinearLayout(requireContext()).apply {
-            orientation = LinearLayout.VERTICAL
-            setPadding(24, 24, 24, 24)
+        _binding = FragmentOnboardingIntroBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        val features = listOf(
+            Triple("🔍", getString(R.string.onboarding_feature_detect_title), getString(R.string.onboarding_feature_detect_desc)),
+            Triple("⏭️", getString(R.string.onboarding_feature_skip_title), getString(R.string.onboarding_feature_skip_desc)),
+            Triple("👨‍👩‍👧", getString(R.string.onboarding_feature_family_title), getString(R.string.onboarding_feature_family_desc))
+        )
+        features.forEach { (icon, title, desc) ->
+            addFeatureCard(icon, title, desc)
         }
-        listOf(
-            "自动识别" to "检测视频标题中的谣言、养生骗局关键词",
-            "自动跳过" to "发现可疑内容时滑到下一个视频",
-            "家人可管理" to "子女可添加新的屏蔽词"
-        ).forEach { (title, desc) ->
-            layout.addView(TextView(requireContext()).apply {
-                text = "$title\n$desc"
-                setPadding(0, 0, 0, 24)
-            })
+        binding.nextButton.setOnClickListener {
+            findNavController().navigate(R.id.onboardingPermissionFragment)
         }
-        layout.addView(Button(requireContext()).apply {
-            text = "下一步"
-            setOnClickListener { findNavController().navigate(R.id.onboardingPermissionFragment) }
-        })
-        return layout
+    }
+
+    private fun addFeatureCard(icon: String, title: String, desc: String) {
+        val itemBinding = ItemOnboardingFeatureBinding.inflate(layoutInflater, binding.featureContainer, false)
+        itemBinding.featureIcon.text = icon
+        itemBinding.featureTitle.text = title
+        itemBinding.featureDesc.text = desc
+        binding.featureContainer.addView(itemBinding.root)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
 
 class OnboardingPermissionFragment : Fragment() {
+    private var _binding: FragmentOnboardingPermissionBinding? = null
+    private val binding get() = _binding!!
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        val layout = LinearLayout(requireContext()).apply {
-            orientation = LinearLayout.VERTICAL
-            setPadding(24, 24, 24, 24)
+        _binding = FragmentOnboardingPermissionBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        binding.openPermissionButton.setOnClickListener {
+            AccessibilityUtils.openAccessibilitySettings(requireContext())
         }
-        layout.addView(TextView(requireContext()).apply {
-            text = "需要开启「无障碍服务」才能读取抖音视频标题"
-        })
-        layout.addView(Button(requireContext()).apply {
-            text = "去开启权限"
-            setOnClickListener {
-                com.yinling.guard.util.AccessibilityUtils.openAccessibilitySettings(requireContext())
-            }
-        })
-        layout.addView(Button(requireContext()).apply {
-            text = "我已开启，继续"
-            setOnClickListener { findNavController().navigate(R.id.onboardingDoneFragment) }
-        })
-        return layout
+        binding.continueButton.setOnClickListener { navigateToDone() }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        refreshPermissionState(autoAdvance = true)
+    }
+
+    private fun refreshPermissionState(autoAdvance: Boolean) {
+        val granted = AccessibilityUtils.isServiceEnabled(requireContext())
+        binding.statusText.text = if (granted) {
+            getString(R.string.onboarding_permission_granted)
+        } else {
+            getString(R.string.onboarding_permission_desc)
+        }
+        binding.continueButton.isEnabled = granted
+        if (granted && autoAdvance) {
+            navigateToDone()
+        }
+    }
+
+    private fun navigateToDone() {
+        if (!AccessibilityUtils.isServiceEnabled(requireContext())) return
+        findNavController().navigate(R.id.onboardingDoneFragment)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
 
 class OnboardingDoneFragment : Fragment() {
+    private var _binding: FragmentOnboardingDoneBinding? = null
+    private val binding get() = _binding!!
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        val layout = LinearLayout(requireContext()).apply {
-            orientation = LinearLayout.VERTICAL
-            setPadding(24, 24, 24, 24)
+        _binding = FragmentOnboardingDoneBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        binding.retryButton.setOnClickListener {
+            AccessibilityUtils.openAccessibilitySettings(requireContext())
         }
-        layout.addView(TextView(requireContext()).apply {
-            text = "守护已开启\n设置完成"
-            textSize = 20f
-        })
-        layout.addView(Button(requireContext()).apply {
-            text = "进入首页"
-            setOnClickListener {
-                val repo = com.yinling.guard.data.ServiceLocator.repository(requireContext())
-                val config = repo.loadConfig().copy(onboardingCompleted = true, guardEnabled = true)
-                repo.saveConfig(
-                    if (config.firstGuardDate == null) config.copy(firstGuardDate = java.time.LocalDate.now().toString())
-                    else config
-                )
-                findNavController().navigate(R.id.homeFragment)
-            }
-        })
-        return layout
+        binding.enterButton.setOnClickListener { completeOnboarding() }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        refreshState()
+    }
+
+    private fun refreshState() {
+        val granted = AccessibilityUtils.isServiceEnabled(requireContext())
+        binding.statusText.text = if (granted) {
+            getString(R.string.onboarding_done_success)
+        } else {
+            getString(R.string.onboarding_done_pending)
+        }
+        binding.iconBadge.text = if (granted) "✅" else "⚠️"
+        binding.enterButton.isEnabled = granted
+        binding.retryButton.visibility = if (granted) View.GONE else View.VISIBLE
+    }
+
+    private fun completeOnboarding() {
+        if (!AccessibilityUtils.isServiceEnabled(requireContext())) return
+
+        val repo = ServiceLocator.repository(requireContext())
+        var config = repo.loadConfig().copy(onboardingCompleted = true, guardEnabled = true)
+        if (config.firstGuardDate == null) {
+            config = config.copy(firstGuardDate = LocalDate.now().toString())
+        }
+        repo.saveConfig(config)
+
+        val navOptions = NavOptions.Builder()
+            .setPopUpTo(R.id.nav_graph, true)
+            .build()
+        findNavController().navigate(R.id.homeFragment, null, navOptions)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

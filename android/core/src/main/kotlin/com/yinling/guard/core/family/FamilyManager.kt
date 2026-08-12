@@ -1,6 +1,7 @@
 package com.yinling.guard.core.family
 
 import com.yinling.guard.core.model.BlacklistAccount
+import com.yinling.guard.core.model.BackupFile
 import com.yinling.guard.core.model.KeywordEntry
 import com.yinling.guard.core.model.WhitelistEntry
 import com.yinling.guard.core.security.PasswordHasher
@@ -81,7 +82,23 @@ class FamilyManager(
         return entry
     }
 
+    fun addWhitelistAuthor(value: String): WhitelistEntry {
+        val entry = WhitelistEntry("wl_${UUID.randomUUID()}", "author", value.trim(), isoNow())
+        val store = repository.loadWhitelist()
+        repository.saveWhitelist(store.copy(entries = store.entries + entry, updatedAt = isoNow()))
+        return entry
+    }
+
+    fun removeWhitelistEntry(id: String) {
+        val store = repository.loadWhitelist()
+        repository.saveWhitelist(store.copy(entries = store.entries.filterNot { it.id == id }, updatedAt = isoNow()))
+    }
+
     fun exportBackup(appVersion: String) = repository.exportBackup(appVersion)
+
+    fun importBackup(backup: BackupFile) = repository.importBackup(backup)
+
+    fun parseBackupJson(json: String): Result<BackupFile> = runCatching { repository.parseBackupJson(json) }
 
     private fun isoNow(): String =
         DateTimeFormatter.ISO_LOCAL_DATE_TIME.format(nowProvider().atZone(ZoneId.systemDefault()).toLocalDateTime())

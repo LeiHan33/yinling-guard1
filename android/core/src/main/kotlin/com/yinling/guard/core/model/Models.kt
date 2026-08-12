@@ -91,6 +91,14 @@ data class BackupFile(
     val whitelist: List<WhitelistEntry>
 )
 
+data class ImportBackupResult(
+    val success: Boolean,
+    val message: String,
+    val addedKeywords: Int = 0,
+    val addedBlacklist: Int = 0,
+    val addedWhitelist: Int = 0
+)
+
 data class VideoSnapshot(
     val title: String,
     val author: String,

@@ -163,4 +163,33 @@ class GuardRepositoryTest {
         )))
         assertEquals(1, repository.whitelistCount())
     }
+
+    @Test
+    fun `importBackup merges new keywords and skips duplicates`() {
+        repository.addKeyword("已有词", "rumor")
+        val backup = BackupFile(
+            exportedAt = "2026-08-11T10:00:00",
+            appVersion = "1.0.0",
+            keywords = listOf(
+                KeywordEntry("kw_dup", "已有词", "clickbait", "custom", 0, "2026-08-11T10:00:00"),
+                KeywordEntry("kw_new", "新词", "rumor", "custom", 0, "2026-08-11T10:00:00")
+            ),
+            blacklist = emptyList(),
+            whitelist = emptyList()
+        )
+
+        val result = repository.importBackup(backup)
+
+        assertTrue(result.success)
+        assertEquals(1, result.addedKeywords)
+        assertTrue(repository.loadKeywords().keywords.any { it.word == "新词" })
+        assertFalse(repository.loadKeywords().keywords.any { it.id == "kw_dup" })
+    }
+
+    @Test
+    fun `parseBackupJson rejects invalid json`() {
+        runCatching { repository.parseBackupJson("{") }
+            .onSuccess { error("expected failure") }
+            .onFailure { assertTrue(true) }
+    }
 }

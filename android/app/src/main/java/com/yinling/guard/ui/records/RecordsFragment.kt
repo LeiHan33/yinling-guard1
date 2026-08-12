@@ -19,6 +19,7 @@ class RecordsFragment : Fragment() {
     private var _binding: FragmentRecordsBinding? = null
     private val binding get() = _binding!!
     private var currentRange = BlockLogFilter.Range.TODAY
+    private var filtersInitialized = false
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentRecordsBinding.inflate(inflater, container, false)
@@ -27,7 +28,10 @@ class RecordsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        setupFilters()
+        if (!filtersInitialized) {
+            setupFilters()
+            filtersInitialized = true
+        }
         render()
     }
 
@@ -37,7 +41,11 @@ class RecordsFragment : Fragment() {
     }
 
     private fun setupFilters() {
-        val labels = listOf("今天" to BlockLogFilter.Range.TODAY, "昨天" to BlockLogFilter.Range.YESTERDAY, "全部" to BlockLogFilter.Range.ALL)
+        val labels = listOf(
+            "今天" to BlockLogFilter.Range.TODAY,
+            "昨天" to BlockLogFilter.Range.YESTERDAY,
+            "全部" to BlockLogFilter.Range.ALL
+        )
         labels.forEach { (label, range) ->
             val chip = Chip(requireContext()).apply {
                 text = label
@@ -55,7 +63,8 @@ class RecordsFragment : Fragment() {
     private fun render() {
         val state = ServiceLocator.recordsPresenter.buildState(currentRange)
         binding.emptyText.visibility = if (state.logs.isEmpty()) View.VISIBLE else View.GONE
-        binding.recyclerView.adapter = RecordAdapter(state.logs)
+        binding.recyclerView.visibility = if (state.logs.isEmpty()) View.GONE else View.VISIBLE
+        binding.recyclerView.adapter = BlockLogAdapter(state.logs)
     }
 
     override fun onDestroyView() {
@@ -63,22 +72,29 @@ class RecordsFragment : Fragment() {
         _binding = null
     }
 
-    private class RecordAdapter(private val items: List<BlockLogEntry>) :
-        RecyclerView.Adapter<RecordAdapter.Holder>() {
+    private class BlockLogAdapter(private val items: List<BlockLogEntry>) :
+        RecyclerView.Adapter<BlockLogAdapter.Holder>() {
         class Holder(view: View) : RecyclerView.ViewHolder(view) {
-            val line1: TextView = view.findViewById(R.id.line1)
-            val line2: TextView = view.findViewById(R.id.line2)
+            val title: TextView = view.findViewById(R.id.tv_title)
+            val time: TextView = view.findViewById(R.id.tv_time)
+            val keyword: TextView = view.findViewById(R.id.tv_keyword)
+            val category: TextView = view.findViewById(R.id.tv_category)
+            val author: TextView = view.findViewById(R.id.tv_author)
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
-            val view = LayoutInflater.from(parent.context).inflate(R.layout.item_record, parent, false)
+            val view = LayoutInflater.from(parent.context).inflate(R.layout.item_block_log, parent, false)
             return Holder(view)
         }
 
         override fun onBindViewHolder(holder: Holder, position: Int) {
             val item = items[position]
-            holder.line1.text = "${item.timestamp}  ${item.category}"
-            holder.line2.text = "${item.title}\n命中关键词：${item.keyword}"
+            val context = holder.itemView.context
+            holder.title.text = item.title
+            holder.time.text = CategoryUi.formatTime(item.timestamp)
+            holder.keyword.text = item.keyword
+            CategoryUi.applyCategoryTag(context, holder.category, item.category)
+            holder.author.text = item.author.ifBlank { "未知作者" }
         }
 
         override fun getItemCount(): Int = items.size

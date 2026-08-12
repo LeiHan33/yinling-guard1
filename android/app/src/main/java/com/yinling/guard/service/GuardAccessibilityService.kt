@@ -3,20 +3,18 @@ package com.yinling.guard.service
 import android.accessibilityservice.AccessibilityService
 import android.accessibilityservice.GestureDescription
 import android.graphics.Path
-import android.os.Handler
-import android.os.Looper
 import android.view.accessibility.AccessibilityEvent
-import android.widget.Toast
 import com.yinling.guard.R
 import com.yinling.guard.core.engine.ContentMatcher
 import com.yinling.guard.core.engine.GuardEngine
 import com.yinling.guard.core.model.VideoSnapshot
 import com.yinling.guard.data.ServiceLocator
 import com.yinling.guard.util.DouyinNodeParser
+import com.yinling.guard.util.SkipToastOverlay
 
 class GuardAccessibilityService : AccessibilityService() {
     private val guardEngine = GuardEngine()
-    private val handler = Handler(Looper.getMainLooper())
+    private var skipToastOverlay: SkipToastOverlay? = null
     private var lastSignature = ""
     private var lastActionAt = 0L
 
@@ -49,11 +47,12 @@ class GuardAccessibilityService : AccessibilityService() {
         decision.logEntry?.let { repo.appendBlockLog(it) }
         performSwipeUp()
         if (config.toastEnabled) {
-            handler.post {
-                Toast.makeText(applicationContext, getString(R.string.skip_toast), Toast.LENGTH_SHORT).show()
-            }
+            toastOverlay().show(getString(R.string.skip_toast))
         }
     }
+
+    private fun toastOverlay(): SkipToastOverlay =
+        skipToastOverlay ?: SkipToastOverlay(this).also { skipToastOverlay = it }
 
     override fun onInterrupt() = Unit
 
@@ -91,6 +90,8 @@ class GuardAccessibilityService : AccessibilityService() {
     }
 
     override fun onDestroy() {
+        skipToastOverlay?.dismiss()
+        skipToastOverlay = null
         instance = null
         super.onDestroy()
     }

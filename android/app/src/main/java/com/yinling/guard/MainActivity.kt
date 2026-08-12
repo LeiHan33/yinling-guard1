@@ -1,6 +1,7 @@
 package com.yinling.guard
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
@@ -9,6 +10,13 @@ import com.yinling.guard.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+
+    private val onboardingDestinations = setOf(
+        R.id.onboardingWelcomeFragment,
+        R.id.onboardingIntroFragment,
+        R.id.onboardingPermissionFragment,
+        R.id.onboardingDoneFragment
+    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,6 +27,14 @@ class MainActivity : AppCompatActivity() {
         val navHost = supportFragmentManager.findFragmentById(R.id.nav_host) as NavHostFragment
         val navController = navHost.navController
         binding.bottomNav.setupWithNavController(navController)
+
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            binding.bottomNav.visibility = if (destination.id in onboardingDestinations) {
+                View.GONE
+            } else {
+                View.VISIBLE
+            }
+        }
 
         val config = ServiceLocator.repository(this).loadConfig()
         if (!config.onboardingCompleted) {

@@ -7,6 +7,8 @@ android/kotlin-compiler.zip
 android/android/
 android/build-output.log
 android/build-test-output.log
+android/core/build/
+android/app/build/
 android-sdk/
 *.apk
 *.iml

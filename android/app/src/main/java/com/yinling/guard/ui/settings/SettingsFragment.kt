@@ -4,13 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
-import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.yinling.guard.R
 import com.yinling.guard.data.ServiceLocator
 import com.yinling.guard.databinding.FragmentSettingsBinding
+import com.yinling.guard.ui.common.PasswordDialog
 
 class SettingsFragment : Fragment() {
     private var _binding: FragmentSettingsBinding? = null
@@ -48,6 +47,9 @@ class SettingsFragment : Fragment() {
                 promptPassword(onSuccess = { openFamily() })
             }
         }
+        binding.helpButton.setOnClickListener {
+            findNavController().navigate(R.id.helpFragment)
+        }
     }
 
     override fun onResume() {
@@ -61,6 +63,8 @@ class SettingsFragment : Fragment() {
         binding.guardSwitch.isChecked = state.guardEnabled
         suppressSwitchCallback = false
         binding.toastSwitch.isChecked = state.toastEnabled
+        binding.platformText.text = "守护平台：${state.targetApp}"
+        binding.filterModeText.text = "过滤模式：${state.filterMode}"
         binding.versionText.text = "版本 v${state.appVersion}"
     }
 
@@ -69,34 +73,38 @@ class SettingsFragment : Fragment() {
     }
 
     private fun promptPassword(onSuccess: () -> Unit, onCancel: (() -> Unit)? = null) {
-        val input = EditText(requireContext())
-        AlertDialog.Builder(requireContext())
-            .setTitle("输入子女密码")
-            .setView(input)
-            .setPositiveButton("确定") { _, _ ->
-                if (ServiceLocator.familyManager.verifyPassword(input.text.toString()).success) {
+        PasswordDialog.show(
+            fragment = this,
+            title = getString(R.string.password_title),
+            onConfirm = { password, showError ->
+                if (ServiceLocator.familyManager.verifyPassword(password).success) {
                     onSuccess()
+                    true
                 } else {
-                    android.widget.Toast.makeText(requireContext(), "密码错误", android.widget.Toast.LENGTH_SHORT).show()
-                    onCancel?.invoke()
+                    showError(getString(R.string.password_error))
+                    false
                 }
-            }
-            .setNegativeButton("取消") { _, _ -> onCancel?.invoke() }
-            .show()
+            },
+            onCancel = onCancel
+        )
     }
 
     private fun promptSetPassword(onSuccess: () -> Unit) {
-        val input = EditText(requireContext())
-        AlertDialog.Builder(requireContext())
-            .setTitle("设置子女密码")
-            .setView(input)
-            .setPositiveButton("确定") { _, _ ->
-                val result = ServiceLocator.familyManager.setupPassword(input.text.toString())
-                android.widget.Toast.makeText(requireContext(), result.message, android.widget.Toast.LENGTH_SHORT).show()
-                if (result.success) onSuccess()
+        PasswordDialog.show(
+            fragment = this,
+            title = getString(R.string.password_set_title),
+            description = getString(R.string.password_set_desc),
+            onConfirm = { password, showError ->
+                val result = ServiceLocator.familyManager.setupPassword(password)
+                if (result.success) {
+                    onSuccess()
+                    true
+                } else {
+                    showError(result.message)
+                    false
+                }
             }
-            .setNegativeButton("取消", null)
-            .show()
+        )
     }
 
     override fun onDestroyView() {
