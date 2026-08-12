@@ -17,7 +17,14 @@
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.yinling.guard.ui.settings.SettingsFragment"
-        android:label="@string/tab_settings" />
+        android:label="@string/tab_settings">
+        <action
+            android:id="@+id/action_settings_to_help"
+            app:destination="@id/helpFragment" />
+        <action
+            android:id="@+id/action_settings_to_family"
+            app:destination="@id/familyHomeFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/helpFragment"
@@ -44,7 +51,17 @@
     <fragment
         android:id="@+id/familyHomeFragment"
         android:name="com.yinling.guard.ui.family.FamilyHomeFragment"
-        android:label="子女管理" />
+        android:label="子女管理">
+        <action
+            android:id="@+id/action_family_to_keywords"
+            app:destination="@id/keywordListFragment" />
+        <action
+            android:id="@+id/action_family_to_blacklist"
+            app:destination="@id/blacklistFragment" />
+        <action
+            android:id="@+id/action_family_to_whitelist"
+            app:destination="@id/whitelistFragment" />
+    </fragment>
     <fragment
         android:id="@+id/keywordListFragment"
         android:name="com.yinling.guard.ui.family.KeywordListFragment"
@@ -58,19 +75,4 @@
         android:name="com.yinling.guard.ui.family.WhitelistFragment"
         android:label="白名单" />
 
-    <action
-        android:id="@+id/action_settings_to_family"
-        app:destination="@id/familyHomeFragment" />
-    <action
-        android:id="@+id/action_family_to_keywords"
-        app:destination="@id/keywordListFragment" />
-    <action
-        android:id="@+id/action_settings_to_help"
-        app:destination="@id/helpFragment" />
-    <action
-        android:id="@+id/action_family_to_blacklist"
-        app:destination="@id/blacklistFragment" />
-    <action
-        android:id="@+id/action_family_to_whitelist"
-        app:destination="@id/whitelistFragment" />
 </navigation>

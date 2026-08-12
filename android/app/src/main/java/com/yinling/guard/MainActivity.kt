@@ -18,6 +18,14 @@ class MainActivity : AppCompatActivity() {
         R.id.onboardingDoneFragment
     )
 
+    private val secondaryDestinations = setOf(
+        R.id.helpFragment,
+        R.id.familyHomeFragment,
+        R.id.keywordListFragment,
+        R.id.blacklistFragment,
+        R.id.whitelistFragment
+    )
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         ServiceLocator.init(this)
@@ -29,10 +37,9 @@ class MainActivity : AppCompatActivity() {
         binding.bottomNav.setupWithNavController(navController)
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            binding.bottomNav.visibility = if (destination.id in onboardingDestinations) {
-                View.GONE
-            } else {
-                View.VISIBLE
+            binding.bottomNav.visibility = when (destination.id) {
+                in onboardingDestinations, in secondaryDestinations -> View.GONE
+                else -> View.VISIBLE
             }
         }
 

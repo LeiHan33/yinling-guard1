@@ -51,9 +51,9 @@ class FamilyHomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         renderCounts()
         binding.btnBack.setOnClickListener { findNavController().popBackStack() }
-        binding.cardKeywords.setOnClickListener { findNavController().navigate(R.id.keywordListFragment) }
-        binding.cardBlacklist.setOnClickListener { findNavController().navigate(R.id.blacklistFragment) }
-        binding.cardWhitelist.setOnClickListener { findNavController().navigate(R.id.whitelistFragment) }
+        binding.cardKeywords.setOnClickListener { navigateIfPossible(R.id.action_family_to_keywords) }
+        binding.cardBlacklist.setOnClickListener { navigateIfPossible(R.id.action_family_to_blacklist) }
+        binding.cardWhitelist.setOnClickListener { navigateIfPossible(R.id.action_family_to_whitelist) }
         binding.cardImport.setOnClickListener { importLauncher.launch(arrayOf("application/json", "text/plain", "*/*")) }
         binding.cardExport.setOnClickListener { exportBackup() }
     }
@@ -114,6 +114,14 @@ class FamilyHomeFragment : Fragment() {
             renderCounts()
         }.onFailure {
             Toast.makeText(requireContext(), getString(R.string.import_invalid), Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun navigateIfPossible(actionId: Int) {
+        if (!isAdded) return
+        val navController = findNavController()
+        if (navController.currentDestination?.getAction(actionId) != null) {
+            navController.navigate(actionId)
         }
     }
 

@@ -33,7 +33,9 @@ class SettingsFragmentTest {
         onView(withId(R.id.toastSwitch)).check(matches(isDisplayed()))
         onView(allOf(withId(R.id.familyButton), withText("子女管理"))).check(matches(isDisplayed()))
         onView(withId(R.id.helpButton)).check(matches(isDisplayed()))
-        onView(withText("版本 v1.0.1")).check(matches(isDisplayed()))
+        val versionLabel = ApplicationProvider.getApplicationContext<Context>()
+            .getString(R.string.settings_version, "1.0.1")
+        onView(withText(versionLabel)).check(matches(isDisplayed()))
     }
 }
 

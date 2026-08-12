@@ -22,7 +22,6 @@ class SettingsFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        render()
         binding.guardSwitch.setOnCheckedChangeListener { _, isChecked ->
             if (suppressSwitchCallback) return@setOnCheckedChangeListener
             val presenter = ServiceLocator.settingsPresenter
@@ -48,8 +47,9 @@ class SettingsFragment : Fragment() {
             }
         }
         binding.helpButton.setOnClickListener {
-            findNavController().navigate(R.id.helpFragment)
+            navigateIfPossible(R.id.action_settings_to_help)
         }
+        render()
     }
 
     override fun onResume() {
@@ -63,13 +63,21 @@ class SettingsFragment : Fragment() {
         binding.guardSwitch.isChecked = state.guardEnabled
         suppressSwitchCallback = false
         binding.toastSwitch.isChecked = state.toastEnabled
-        binding.platformText.text = "守护平台：${state.targetApp}"
-        binding.filterModeText.text = "过滤模式：${state.filterMode}"
-        binding.versionText.text = "版本 v${state.appVersion}"
+        binding.platformText.text = getString(R.string.settings_platform, state.targetApp)
+        binding.filterModeText.text = getString(R.string.settings_filter_mode, state.filterMode)
+        binding.versionText.text = getString(R.string.settings_version, state.appVersion)
     }
 
     private fun openFamily() {
-        findNavController().navigate(R.id.familyHomeFragment)
+        navigateIfPossible(R.id.action_settings_to_family)
+    }
+
+    private fun navigateIfPossible(actionId: Int) {
+        if (!isAdded) return
+        val navController = findNavController()
+        if (navController.currentDestination?.getAction(actionId) != null) {
+            navController.navigate(actionId)
+        }
     }
 
     private fun promptPassword(onSuccess: () -> Unit, onCancel: (() -> Unit)? = null) {
@@ -108,6 +116,8 @@ class SettingsFragment : Fragment() {
     }
 
     override fun onDestroyView() {
+        binding.guardSwitch.setOnCheckedChangeListener(null)
+        binding.toastSwitch.setOnCheckedChangeListener(null)
         super.onDestroyView()
         _binding = null
     }

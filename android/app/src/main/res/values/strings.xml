@@ -84,6 +84,11 @@
     <string name="family_import">导入词库</string>
     <string name="import_invalid">备份文件无效</string>
 
+    <!-- 设置 -->
+    <string name="settings_platform">守护平台：%1$s</string>
+    <string name="settings_filter_mode">过滤模式：%1$s</string>
+    <string name="settings_version">版本 v%1$s</string>
+
     <!-- 使用帮助 -->
     <string name="help_title">使用帮助</string>
     <string name="settings_help">使用帮助</string>

@@ -3,7 +3,7 @@ package com.yinling.guard.ui.family
 import android.view.LayoutInflater
 import android.widget.RadioGroup
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import androidx.fragment.app.Fragment
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
@@ -19,7 +19,7 @@ object AddKeywordDialog {
         val input = view.findViewById<TextInputEditText>(R.id.et_keyword)
         val categoryGroup = view.findViewById<RadioGroup>(R.id.rg_category)
 
-        val dialog = AlertDialog.Builder(context)
+        val dialog = MaterialAlertDialogBuilder(context)
             .setView(view)
             .create()
 
