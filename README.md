@@ -8,7 +8,9 @@
 
 ## 📥 下载 / Download
 
-**[⬇️ 下载 APK (v1.0.0)](https://github.com/LeiHan33/yinling-guard1/releases/download/v1.0.0/yinling-guard-v1.0.0-debug.apk)**
+**[⬇️ 下载 APK (v1.0.1)](https://github.com/LeiHan33/yinling-guard1/releases/download/v1.0.1/yinling-guard-v1.0.1-debug.apk)**
+
+> 推送 `v*` 标签到 `main` 后，GitHub Actions 会自动构建并发布 APK；也可在 [Actions](https://github.com/LeiHan33/yinling-guard1/actions/workflows/build-apk.yml) 手动触发。
 
 ---
 

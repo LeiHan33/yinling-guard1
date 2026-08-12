@@ -25,7 +25,7 @@ data class AppConfig(
     val targetApp: String = "douyin",
     val firstGuardDate: String? = null,
     val familyPasswordHash: String? = null,
-    val appVersion: String = "1.0.0"
+    val appVersion: String = "1.0.1"
 )
 
 data class KeywordEntry(
