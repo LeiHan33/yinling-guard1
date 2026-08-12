@@ -111,6 +111,12 @@ powershell -ExecutionPolicy Bypass -File android/scripts/build.ps1 -Task all
 
 ---
 
+## 👤 Author · 作者
+
+**[LeiHan33](https://github.com/LeiHan33)** — 项目唯一维护者与贡献者 · Sole maintainer and contributor
+
+---
+
 ## 📄 License
 
 MIT — 详见 [LICENSE](LICENSE) · See [LICENSE](LICENSE) for details.

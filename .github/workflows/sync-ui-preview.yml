@@ -19,8 +19,8 @@ jobs:
 
       - name: Deploy preview to gh-pages
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.name "LeiHan33"
+          git config user.email "lei840864@gmail.com"
           git fetch origin gh-pages
           git worktree add gh-pages origin/gh-pages
           cp android/ui-preview.html gh-pages/index.html
