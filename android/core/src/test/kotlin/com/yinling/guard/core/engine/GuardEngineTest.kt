@@ -62,7 +62,7 @@ class GuardEngineTest {
     fun `log entry title truncated to 120 chars`() {
         val longTitle = "a".repeat(200)
         val engine = GuardEngine(clock = fixedClock, idGenerator = fixedId)
-        val decision = engine.evaluate(snap(longTitle), true, listOf(kw("a")), emptyList(), emptyList())
+        val decision = engine.evaluate(snap(longTitle), true, listOf(kw("aa")), emptyList(), emptyList())
         assertTrue(decision.logEntry!!.title.length <= 120)
     }
 

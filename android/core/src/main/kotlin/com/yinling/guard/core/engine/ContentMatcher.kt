@@ -26,7 +26,7 @@ class ContentMatcher {
 
         val title = snapshot.title.trim()
         val author = snapshot.author.trim()
-        if (title.isEmpty() && author.isEmpty()) {
+        if (title.isEmpty() && author.isEmpty() && snapshot.allText.isBlank()) {
             return MatchResult(matched = false)
         }
 
