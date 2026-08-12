@@ -8,6 +8,7 @@ import android.os.Looper
 import android.view.accessibility.AccessibilityEvent
 import com.yinling.guard.R
 import com.yinling.guard.core.engine.ContentMatcher
+import com.yinling.guard.core.engine.DouyinScreenContext
 import com.yinling.guard.core.engine.GuardEngine
 import com.yinling.guard.core.model.VideoSnapshot
 import com.yinling.guard.data.ServiceLocator
@@ -42,8 +43,14 @@ class GuardAccessibilityService : AccessibilityService() {
     private fun evaluateCurrentWindow() {
         val root = rootInActiveWindow ?: return
         val parsed = DouyinNodeParser.parse(root)
-        val signature = "${parsed.title}|${parsed.author}|${parsed.allText}"
-        if (signature.isBlank() || signature == "||" || signature == lastSignature) return
+        if (parsed.screenContext != DouyinScreenContext.VIDEO_FEED) {
+            lastSignature = ""
+            return
+        }
+
+        val signature = "${parsed.title}|${parsed.author}|${parsed.hasCaptionEvidence}"
+        if (signature.isBlank() || signature == "|false" || signature == lastSignature) return
+        if (parsed.title.isBlank() && parsed.author.isBlank()) return
         lastSignature = signature
 
         val repo = ServiceLocator.repository(this)
@@ -53,12 +60,15 @@ class GuardAccessibilityService : AccessibilityService() {
                 title = parsed.title,
                 author = parsed.author,
                 packageName = ContentMatcher.DOUYIN_PACKAGE,
-                allText = parsed.allText
+                allText = parsed.allText,
+                inFeedContext = true,
+                hasCaptionEvidence = parsed.hasCaptionEvidence
             ),
             config.guardEnabled,
             repo.loadKeywords().keywords,
             repo.loadBlacklist().accounts,
-            repo.loadWhitelist().entries
+            repo.loadWhitelist().entries,
+            config.filterMode
         )
 
         if (!decision.shouldBlock) return

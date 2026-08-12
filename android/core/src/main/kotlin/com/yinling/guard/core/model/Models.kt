@@ -25,7 +25,7 @@ data class AppConfig(
     val targetApp: String = "douyin",
     val firstGuardDate: String? = null,
     val familyPasswordHash: String? = null,
-    val appVersion: String = "1.0.3"
+    val appVersion: String = "1.0.4"
 )
 
 data class KeywordEntry(
@@ -103,7 +103,9 @@ data class VideoSnapshot(
     val title: String,
     val author: String,
     val packageName: String,
-    val allText: String = ""
+    val allText: String = "",
+    val inFeedContext: Boolean = true,
+    val hasCaptionEvidence: Boolean = false
 )
 
 data class MatchResult(

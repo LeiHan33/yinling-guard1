@@ -24,7 +24,12 @@ class ContentMatcherTest {
     )
 
     private fun snap(title: String, author: String = "", pkg: String = ContentMatcher.DOUYIN_PACKAGE) =
-        VideoSnapshot(title = title, author = author, packageName = pkg)
+        VideoSnapshot(
+            title = title,
+            author = author,
+            packageName = pkg,
+            hasCaptionEvidence = title.isNotBlank()
+        )
 
     // ========== 关键词匹配 ==========
 
@@ -36,14 +41,57 @@ class ContentMatcherTest {
     }
 
     @Test
-    fun `keyword match uses allText when provided`() {
+    fun `keyword match uses allText only in balanced mode with caption evidence`() {
         val result = matcher.match(
-            VideoSnapshot("", "", ContentMatcher.DOUYIN_PACKAGE, allText = "这条视频提到内部消息"),
+            VideoSnapshot(
+                title = "",
+                author = "",
+                packageName = ContentMatcher.DOUYIN_PACKAGE,
+                allText = "这条视频提到内部消息",
+                inFeedContext = true,
+                hasCaptionEvidence = true
+            ),
             listOf(kw("内部消息")),
+            emptyList(),
+            emptyList(),
+            filterMode = "balanced"
+        )
+        assertTrue(result.matched)
+    }
+
+    @Test
+    fun `strict mode ignores allText fallback`() {
+        val result = matcher.match(
+            VideoSnapshot(
+                title = "",
+                author = "",
+                packageName = ContentMatcher.DOUYIN_PACKAGE,
+                allText = "这条视频提到内部消息",
+                inFeedContext = true,
+                hasCaptionEvidence = true
+            ),
+            listOf(kw("内部消息")),
+            emptyList(),
+            emptyList(),
+            filterMode = "strict"
+        )
+        assertFalse(result.matched)
+    }
+
+    @Test
+    fun `no match outside feed context`() {
+        val result = matcher.match(
+            VideoSnapshot(
+                title = "治百病",
+                author = "",
+                packageName = ContentMatcher.DOUYIN_PACKAGE,
+                inFeedContext = false
+            ),
+            listOf(kw("治百病")),
             emptyList(),
             emptyList()
         )
-        assertTrue(result.matched)
+        assertFalse(result.matched)
     }
 
     @Test

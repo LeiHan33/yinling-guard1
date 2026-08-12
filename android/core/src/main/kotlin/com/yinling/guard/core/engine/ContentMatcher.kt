@@ -13,16 +13,20 @@ class ContentMatcher {
         keywords: List<KeywordEntry>,
         blacklist: List<BlacklistAccount>,
         whitelist: List<WhitelistEntry>,
+        filterMode: String = "strict",
         targetPackage: String = DOUYIN_PACKAGE
     ): MatchResult {
         if (snapshot.packageName != targetPackage) {
             return MatchResult(matched = false)
         }
 
+        if (!snapshot.inFeedContext) {
+            return MatchResult(matched = false)
+        }
+
         val title = snapshot.title.trim()
         val author = snapshot.author.trim()
-        val searchableText = buildSearchableText(title, author, snapshot.allText)
-        if (searchableText.isBlank()) {
+        if (title.isEmpty() && author.isEmpty()) {
             return MatchResult(matched = false)
         }
 
@@ -42,7 +46,7 @@ class ContentMatcher {
         }
 
         keywords.forEach { entry ->
-            if (searchableText.contains(entry.word, ignoreCase = true)) {
+            if (matchesKeyword(entry, snapshot, filterMode)) {
                 return MatchResult(
                     matched = true,
                     keyword = entry.word,
@@ -55,9 +59,41 @@ class ContentMatcher {
         return MatchResult(matched = false)
     }
 
-    private fun buildSearchableText(title: String, author: String, allText: String): String {
-        if (allText.isNotBlank()) return allText
-        return listOf(title, author).filter { it.isNotBlank() }.distinct().joinToString(" ")
+    private fun matchesKeyword(
+        entry: KeywordEntry,
+        snapshot: VideoSnapshot,
+        filterMode: String
+    ): Boolean {
+        val word = entry.word.trim()
+        if (word.length < MIN_KEYWORD_LENGTH) return false
+
+        val title = snapshot.title.trim()
+        val author = snapshot.author.trim()
+
+        if (title.isNotEmpty() && containsKeyword(title, word)) {
+            return true
+        }
+
+        if (author.isNotEmpty() && word.length >= AUTHOR_KEYWORD_MIN_LENGTH && containsKeyword(author, word)) {
+            return true
+        }
+
+        if (filterMode != "strict"
+            && snapshot.hasCaptionEvidence
+            && title.isEmpty()
+            && author.isEmpty()
+        ) {
+            val fallbackText = snapshot.allText.trim()
+            if (fallbackText.isNotEmpty() && containsKeyword(fallbackText, word)) {
+                return true
+            }
+        }
+
+        return false
+    }
+
+    private fun containsKeyword(text: String, keyword: String): Boolean {
+        return text.contains(keyword, ignoreCase = true)
     }
 
     private fun isWhitelisted(
@@ -76,5 +112,7 @@ class ContentMatcher {
 
     companion object {
         const val DOUYIN_PACKAGE = "com.ss.android.ugc.aweme"
+        private const val MIN_KEYWORD_LENGTH = 2
+        private const val AUTHOR_KEYWORD_MIN_LENGTH = 3
     }
 }

@@ -10,6 +10,12 @@ class VideoTextParserTest {
     private val parser = VideoTextParser()
 
     @Test
+    fun `detects search page markers`() {
+        assertTrue(parser.isSearchPageMarker("猜你想搜"))
+        assertTrue(parser.isSearchPageMarker("历史搜索记录"))
+    }
+
+    @Test
     fun `filters douyin ui chrome before parsing`() {
         val result = parser.parse(listOf("关注", "点赞", "1234", "震惊！某国即将崩溃", "@作者昵称"))
         assertEquals("震惊！某国即将崩溃", result.title)

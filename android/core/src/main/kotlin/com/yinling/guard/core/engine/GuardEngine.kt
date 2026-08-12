@@ -25,13 +25,20 @@ class GuardEngine(
         guardEnabled: Boolean,
         keywords: List<com.yinling.guard.core.model.KeywordEntry>,
         blacklist: List<com.yinling.guard.core.model.BlacklistAccount>,
-        whitelist: List<com.yinling.guard.core.model.WhitelistEntry>
+        whitelist: List<com.yinling.guard.core.model.WhitelistEntry>,
+        filterMode: String = "strict"
     ): GuardDecision {
         if (!guardEnabled) {
             return GuardDecision(false, null, MatchResult(matched = false))
         }
 
-        val matchResult = contentMatcher.match(snapshot, keywords, blacklist, whitelist)
+        val matchResult = contentMatcher.match(
+            snapshot,
+            keywords,
+            blacklist,
+            whitelist,
+            filterMode
+        )
         if (!matchResult.matched) {
             return GuardDecision(false, null, matchResult)
         }
