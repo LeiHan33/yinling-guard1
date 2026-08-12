@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.yinling.guard.core.engine.BlockLogRetentionTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-08-12T06:57:14" hostname="claw-6884567111-overseas-55b479dc54-84s8k" time="0.024">
+  <properties/>
+  <testcase name="keeps logs within retention period" classname="com.yinling.guard.core.engine.BlockLogRetentionTest" time="0.0"/>
+  <testcase name="handles empty list" classname="com.yinling.guard.core.engine.BlockLogRetentionTest" time="0.001"/>
+  <testcase name="handles malformed timestamp gracefully" classname="com.yinling.guard.core.engine.BlockLogRetentionTest" time="0.002"/>
+  <testcase name="keeps only latest 1000 logs" classname="com.yinling.guard.core.engine.BlockLogRetentionTest" time="0.02"/>
+  <testcase name="removes logs older than 30 days" classname="com.yinling.guard.core.engine.BlockLogRetentionTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

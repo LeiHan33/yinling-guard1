@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.yinling.guard.core.storage.GuardRepositoryTest" tests="17" skipped="0" failures="0" errors="0" timestamp="2026-08-12T06:57:13" hostname="claw-6884567111-overseas-55b479dc54-84s8k" time="0.496">
+  <properties/>
+  <testcase name="saveConfig then loadConfig persists data" classname="com.yinling.guard.core.storage.GuardRepositoryTest" time="0.371"/>
+  <testcase name="addKeyword returns entry with correct data" classname="com.yinling.guard.core.storage.GuardRepositoryTest" time="0.029"/>
+  <testcase name="appendBlockLog increments keyword block count" classname="com.yinling.guard.core.storage.GuardRepositoryTest" time="0.024"/>
+  <testcase name="addKeyword does not deduplicate by word" classname="com.yinling.guard.core.storage.GuardRepositoryTest" time="0.004"/>
+  <testcase name="saveBlacklist then loadBlacklist persists" classname="com.yinling.guard.core.storage.GuardRepositoryTest" time="0.012"/>
+  <testcase name="addKeyword persists new keyword" classname="com.yinling.guard.core.storage.GuardRepositoryTest" time="0.005"/>
+  <testcase name="loadKeywords returns empty when no file and no asset" classname="com.yinling.guard.core.storage.GuardRepositoryTest" time="0.001"/>
+  <testcase name="keywordCount returns correct count" classname="com.yinling.guard.core.storage.GuardRepositoryTest" time="0.003"/>
+  <testcase name="loadBlockLogs returns empty when no file" classname="com.yinling.guard.core.storage.GuardRepositoryTest" time="0.001"/>
+  <testcase name="loadConfig returns defaults when no file" classname="com.yinling.guard.core.storage.GuardRepositoryTest" time="0.001"/>
+  <testcase name="loadBlacklist returns empty when no file" classname="com.yinling.guard.core.storage.GuardRepositoryTest" time="0.001"/>
+  <testcase name="loadWhitelist returns empty when no file" classname="com.yinling.guard.core.storage.GuardRepositoryTest" time="0.004"/>
+  <testcase name="blacklistCount returns correct count" classname="com.yinling.guard.core.storage.GuardRepositoryTest" time="0.004"/>
+  <testcase name="appendBlockLog persists entry" classname="com.yinling.guard.core.storage.GuardRepositoryTest" time="0.003"/>
+  <testcase name="whitelistCount returns correct count" classname="com.yinling.guard.core.storage.GuardRepositoryTest" time="0.003"/>
+  <testcase name="removeKeyword removes by id" classname="com.yinling.guard.core.storage.GuardRepositoryTest" time="0.02"/>
+  <testcase name="exportBackup contains all data" classname="com.yinling.guard.core.storage.GuardRepositoryTest" time="0.007"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

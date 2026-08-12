@@ -1,0 +1,55 @@
+<resources>
+    <string name="app_name">银龄守护</string>
+    <string name="accessibility_service_label">银龄守护</string>
+    <string name="accessibility_service_description">银龄守护需要无障碍权限来监听抖音界面，自动跳过有害内容。此权限仅用于读取屏幕文字和模拟上滑手势，不会收集或上传任何数据。</string>
+
+    <!-- 底部 Tab -->
+    <string name="tab_home">首页</string>
+    <string name="tab_records">记录</string>
+    <string name="tab_settings">设置</string>
+
+    <!-- 首页 -->
+    <string name="guard_on">正在保护</string>
+    <string name="guard_off">已关闭</string>
+    <string name="permission_error">权限异常，点击修复</string>
+    <string name="skip_toast">已跳过可疑内容</string>
+
+    <!-- 拦截记录 -->
+    <string name="empty_records">暂无拦截记录</string>
+
+    <!-- 通用 -->
+    <string name="confirm">确定</string>
+    <string name="cancel">取消</string>
+    <string name="delete">删除</string>
+    <string name="empty">暂无数据</string>
+    <string name="password_hint">请输入密码</string>
+
+    <!-- 子女管理 -->
+    <string name="family_title">子女管理</string>
+    <string name="family_keywords">屏蔽词管理</string>
+    <string name="family_blacklist">账号黑名单</string>
+    <string name="family_export">导出词库</string>
+    <string name="family_keyword_count">屏蔽词</string>
+    <string name="family_blacklist_count">黑名单</string>
+    <string name="family_whitelist_count">白名单</string>
+
+    <!-- 屏蔽词管理 -->
+    <string name="keywords_title">屏蔽词管理</string>
+    <string name="keywords_add">添加屏蔽词</string>
+    <string name="keywords_add_title">添加屏蔽词</string>
+    <string name="keywords_word_hint">输入关键词（1-20字）</string>
+    <string name="keywords_category_label">选择分类</string>
+    <string name="keywords_confirm_add">确认添加</string>
+    <string name="keywords_filter_all">全部</string>
+
+    <!-- 黑名单 -->
+    <string name="blacklist_title">账号黑名单</string>
+    <string name="blacklist_add">添加账号</string>
+    <string name="blacklist_add_hint">输入作者昵称</string>
+
+    <!-- 密码 -->
+    <string name="password_title">请输入子女密码</string>
+    <string name="password_set_title">设置子女管理密码</string>
+    <string name="password_set_desc">设置密码后，只有输入密码才能修改屏蔽规则</string>
+    <string name="password_error">密码错误</string>
+</resources>

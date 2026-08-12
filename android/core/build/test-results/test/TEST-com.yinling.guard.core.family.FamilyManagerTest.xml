@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.yinling.guard.core.family.FamilyManagerTest" tests="23" skipped="0" failures="0" errors="0" timestamp="2026-08-12T06:57:14" hostname="claw-6884567111-overseas-55b479dc54-84s8k" time="0.33">
+  <properties/>
+  <testcase name="add whitelist keyword succeeds" classname="com.yinling.guard.core.family.FamilyManagerTest" time="0.062"/>
+  <testcase name="setup password with valid password succeeds" classname="com.yinling.guard.core.family.FamilyManagerTest" time="0.068"/>
+  <testcase name="filter keywords with all returns everything" classname="com.yinling.guard.core.family.FamilyManagerTest" time="0.076"/>
+  <testcase name="add blacklist author succeeds" classname="com.yinling.guard.core.family.FamilyManagerTest" time="0.012"/>
+  <testcase name="add keyword with duplicate word fails" classname="com.yinling.guard.core.family.FamilyManagerTest" time="0.018"/>
+  <testcase name="can disable guard with correct password" classname="com.yinling.guard.core.family.FamilyManagerTest" time="0.019"/>
+  <testcase name="filter keywords by category" classname="com.yinling.guard.core.family.FamilyManagerTest" time="0.01"/>
+  <testcase name="verify password returns true for correct password" classname="com.yinling.guard.core.family.FamilyManagerTest" time="0.003"/>
+  <testcase name="export backup contains blacklist" classname="com.yinling.guard.core.family.FamilyManagerTest" time="0.005"/>
+  <testcase name="add multiple blacklist authors" classname="com.yinling.guard.core.family.FamilyManagerTest" time="0.004"/>
+  <testcase name="export backup contains keywords" classname="com.yinling.guard.core.family.FamilyManagerTest" time="0.004"/>
+  <testcase name="remove blacklist author removes from repository" classname="com.yinling.guard.core.family.FamilyManagerTest" time="0.003"/>
+  <testcase name="add keyword with empty word fails" classname="com.yinling.guard.core.family.FamilyManagerTest" time="0.001"/>
+  <testcase name="remove keyword removes from repository" classname="com.yinling.guard.core.family.FamilyManagerTest" time="0.008"/>
+  <testcase name="add whitelist keyword persists" classname="com.yinling.guard.core.family.FamilyManagerTest" time="0.003"/>
+  <testcase name="cannot disable guard with wrong password" classname="com.yinling.guard.core.family.FamilyManagerTest" time="0.005"/>
+  <testcase name="add keyword with word over 20 chars fails" classname="com.yinling.guard.core.family.FamilyManagerTest" time="0.002"/>
+  <testcase name="filter keywords returns all when category is null" classname="com.yinling.guard.core.family.FamilyManagerTest" time="0.007"/>
+  <testcase name="add blacklist author persists" classname="com.yinling.guard.core.family.FamilyManagerTest" time="0.004"/>
+  <testcase name="verify password returns false when no password set" classname="com.yinling.guard.core.family.FamilyManagerTest" time="0.001"/>
+  <testcase name="verify password returns false for wrong password" classname="com.yinling.guard.core.family.FamilyManagerTest" time="0.008"/>
+  <testcase name="setup password with too short password fails" classname="com.yinling.guard.core.family.FamilyManagerTest" time="0.002"/>
+  <testcase name="add keyword succeeds" classname="com.yinling.guard.core.family.FamilyManagerTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

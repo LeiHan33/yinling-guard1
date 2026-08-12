@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.yinling.guard.core.engine.BlockLogFilterTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-08-12T06:57:14" hostname="claw-6884567111-overseas-55b479dc54-84s8k" time="0.013">
+  <properties/>
+  <testcase name="filter yesterday returns only yesterday" classname="com.yinling.guard.core.engine.BlockLogFilterTest" time="0.004"/>
+  <testcase name="filter all returns everything sorted descending" classname="com.yinling.guard.core.engine.BlockLogFilterTest" time="0.008"/>
+  <testcase name="filter today returns empty when no logs today" classname="com.yinling.guard.core.engine.BlockLogFilterTest" time="0.0"/>
+  <testcase name="filter today returns only today" classname="com.yinling.guard.core.engine.BlockLogFilterTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

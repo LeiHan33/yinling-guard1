@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.yinling.guard.core.data.DefaultKeywordsTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-08-12T06:57:14" hostname="claw-6884567111-overseas-55b479dc54-84s8k" time="0.021">
+  <properties/>
+  <testcase name="builtin keyword categories cover four groups" classname="com.yinling.guard.core.data.DefaultKeywordsTest" time="0.021"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

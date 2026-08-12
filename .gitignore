@@ -1,0 +1,14 @@
+.gradle/
+android/build/
+android/.gradle/
+android/test-lib/
+android/kotlin-compiler/
+android/kotlin-compiler.zip
+android/android/
+android/build-output.log
+android/build-test-output.log
+android-sdk/
+*.apk
+*.iml
+local.properties
+android/local.properties

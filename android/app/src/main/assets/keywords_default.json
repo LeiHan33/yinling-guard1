@@ -1,0 +1,1174 @@
+{
+  "version": 1,
+  "updatedAt": "2026-08-11T10:00:00",
+  "keywords": [
+    {
+      "id": "kw_001",
+      "word": "治百病",
+      "category": "health_scam",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_002",
+      "word": "包治",
+      "category": "health_scam",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_003",
+      "word": "祖传秘方",
+      "category": "health_scam",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_004",
+      "word": "医院不想让你知道",
+      "category": "health_scam",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_005",
+      "word": "特效药",
+      "category": "health_scam",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_006",
+      "word": "根治",
+      "category": "health_scam",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_007",
+      "word": "药到病除",
+      "category": "health_scam",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_008",
+      "word": "一招见效",
+      "category": "health_scam",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_009",
+      "word": "三天见效",
+      "category": "health_scam",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_010",
+      "word": "七天见效",
+      "category": "health_scam",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_011",
+      "word": "万能",
+      "category": "health_scam",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_012",
+      "word": "神药",
+      "category": "health_scam",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_013",
+      "word": "偏方",
+      "category": "health_scam",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_014",
+      "word": "独家配方",
+      "category": "health_scam",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_015",
+      "word": "宫廷秘方",
+      "category": "health_scam",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_016",
+      "word": "老中医",
+      "category": "health_scam",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_017",
+      "word": "隐藏疗法",
+      "category": "health_scam",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_018",
+      "word": "不吃药",
+      "category": "health_scam",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_019",
+      "word": "零副作用",
+      "category": "health_scam",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_020",
+      "word": "100%有效",
+      "category": "health_scam",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_021",
+      "word": "癌症克星",
+      "category": "health_scam",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_022",
+      "word": "糖尿病克星",
+      "category": "health_scam",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_023",
+      "word": "高血压克星",
+      "category": "health_scam",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_024",
+      "word": "心脏病克星",
+      "category": "health_scam",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_025",
+      "word": "肝病克星",
+      "category": "health_scam",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_026",
+      "word": "肾病克星",
+      "category": "health_scam",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_027",
+      "word": "痛风克星",
+      "category": "health_scam",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_028",
+      "word": "失眠克星",
+      "category": "health_scam",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_029",
+      "word": "减肥神器",
+      "category": "health_scam",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_030",
+      "word": "排毒",
+      "category": "health_scam",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_031",
+      "word": "清毒",
+      "category": "health_scam",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_032",
+      "word": "洗髓",
+      "category": "health_scam",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_033",
+      "word": "换血",
+      "category": "health_scam",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_034",
+      "word": "打通经络",
+      "category": "health_scam",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_035",
+      "word": "激活细胞",
+      "category": "health_scam",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_036",
+      "word": "修复DNA",
+      "category": "health_scam",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_037",
+      "word": "逆龄",
+      "category": "health_scam",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_038",
+      "word": "返老还童",
+      "category": "health_scam",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_039",
+      "word": "长生",
+      "category": "health_scam",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_040",
+      "word": "延寿",
+      "category": "health_scam",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_041",
+      "word": "内部消息",
+      "category": "rumor",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_042",
+      "word": "央视不敢播",
+      "category": "rumor",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_043",
+      "word": "不转不是中国人",
+      "category": "rumor",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_044",
+      "word": "刚刚发生",
+      "category": "rumor",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_045",
+      "word": "速转",
+      "category": "rumor",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_046",
+      "word": "马上删",
+      "category": "rumor",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_047",
+      "word": "删前速看",
+      "category": "rumor",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_048",
+      "word": "内部资料",
+      "category": "rumor",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_049",
+      "word": "机密文件",
+      "category": "rumor",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_050",
+      "word": "绝密",
+      "category": "rumor",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_051",
+      "word": "未公开",
+      "category": "rumor",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_052",
+      "word": "不便公开",
+      "category": "rumor",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_053",
+      "word": "官方辟谣",
+      "category": "rumor",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_054",
+      "word": "国家通知",
+      "category": "rumor",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_055",
+      "word": "紧急通知",
+      "category": "rumor",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_056",
+      "word": "红头文件",
+      "category": "rumor",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_057",
+      "word": "中央通知",
+      "category": "rumor",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_058",
+      "word": "最新通知",
+      "category": "rumor",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_059",
+      "word": "全网封杀",
+      "category": "rumor",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_060",
+      "word": "已被封杀",
+      "category": "rumor",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_061",
+      "word": "禁止传播",
+      "category": "rumor",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_062",
+      "word": "限内部",
+      "category": "rumor",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_063",
+      "word": "只发一次",
+      "category": "rumor",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_064",
+      "word": "看完删",
+      "category": "rumor",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_065",
+      "word": "删了可惜",
+      "category": "rumor",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_066",
+      "word": "转发保平安",
+      "category": "rumor",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_067",
+      "word": "转给家人",
+      "category": "rumor",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_068",
+      "word": "告诉家人",
+      "category": "rumor",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_069",
+      "word": "国人必知",
+      "category": "rumor",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_070",
+      "word": "全民必看",
+      "category": "rumor",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_071",
+      "word": "刚刚曝光",
+      "category": "rumor",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_072",
+      "word": "刚刚流出",
+      "category": "rumor",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_073",
+      "word": "独家曝光",
+      "category": "rumor",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_074",
+      "word": "崩溃",
+      "category": "incitement",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_075",
+      "word": "亡我中华",
+      "category": "incitement",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_076",
+      "word": "阴谋",
+      "category": "incitement",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_077",
+      "word": "颜色革命",
+      "category": "incitement",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_078",
+      "word": "必看",
+      "category": "incitement",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_079",
+      "word": "国难",
+      "category": "incitement",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_080",
+      "word": "民族危机",
+      "category": "incitement",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_081",
+      "word": "亡国",
+      "category": "incitement",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_082",
+      "word": "灭种",
+      "category": "incitement",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_083",
+      "word": "渗透",
+      "category": "incitement",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_084",
+      "word": "间谍",
+      "category": "incitement",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_085",
+      "word": "叛国",
+      "category": "incitement",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_086",
+      "word": "卖国",
+      "category": "incitement",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_087",
+      "word": "汉奸",
+      "category": "incitement",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_088",
+      "word": "带路党",
+      "category": "incitement",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_089",
+      "word": "境外势力",
+      "category": "incitement",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_090",
+      "word": "敌对势力",
+      "category": "incitement",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_091",
+      "word": "亡我之心",
+      "category": "incitement",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_092",
+      "word": "分裂国家",
+      "category": "incitement",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_093",
+      "word": "颠覆",
+      "category": "incitement",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_094",
+      "word": "暴动",
+      "category": "incitement",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_095",
+      "word": "起义",
+      "category": "incitement",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_096",
+      "word": "革命",
+      "category": "incitement",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_097",
+      "word": "推翻",
+      "category": "incitement",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_098",
+      "word": "政权",
+      "category": "incitement",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_099",
+      "word": "政变",
+      "category": "incitement",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_100",
+      "word": "内战",
+      "category": "incitement",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_101",
+      "word": "战争即将",
+      "category": "incitement",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_102",
+      "word": "备战",
+      "category": "incitement",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_103",
+      "word": "屯粮",
+      "category": "incitement",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_104",
+      "word": "逃命",
+      "category": "incitement",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_105",
+      "word": "末日",
+      "category": "incitement",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_106",
+      "word": "灾难降临",
+      "category": "incitement",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_107",
+      "word": "天罚",
+      "category": "incitement",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_108",
+      "word": "震惊",
+      "category": "clickbait",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_109",
+      "word": "速看",
+      "category": "clickbait",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_110",
+      "word": "马上删",
+      "category": "clickbait",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_111",
+      "word": "99%的人不知道",
+      "category": "clickbait",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_112",
+      "word": "赶紧看",
+      "category": "clickbait",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_113",
+      "word": "太可怕了",
+      "category": "clickbait",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_114",
+      "word": "不看后悔",
+      "category": "clickbait",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_115",
+      "word": "惊呆",
+      "category": "clickbait",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_116",
+      "word": "吓傻",
+      "category": "clickbait",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_117",
+      "word": "疯了",
+      "category": "clickbait",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_118",
+      "word": "炸了",
+      "category": "clickbait",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_119",
+      "word": "火了",
+      "category": "clickbait",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_120",
+      "word": "爆了",
+      "category": "clickbait",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_121",
+      "word": "全网疯传",
+      "category": "clickbait",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_122",
+      "word": "刷屏",
+      "category": "clickbait",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_123",
+      "word": "看哭",
+      "category": "clickbait",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_124",
+      "word": "看傻",
+      "category": "clickbait",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_125",
+      "word": "惊了",
+      "category": "clickbait",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_126",
+      "word": "服了",
+      "category": "clickbait",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_127",
+      "word": "绝了",
+      "category": "clickbait",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_128",
+      "word": "重磅",
+      "category": "clickbait",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_129",
+      "word": "突发",
+      "category": "clickbait",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_130",
+      "word": "紧急",
+      "category": "clickbait",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_131",
+      "word": "警告",
+      "category": "clickbait",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_132",
+      "word": "注意",
+      "category": "clickbait",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_133",
+      "word": "危险",
+      "category": "clickbait",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_134",
+      "word": "可怕",
+      "category": "clickbait",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_135",
+      "word": "细思极恐",
+      "category": "clickbait",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_136",
+      "word": "毛骨悚然",
+      "category": "clickbait",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_137",
+      "word": "不寒而栗",
+      "category": "clickbait",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_138",
+      "word": "令人发指",
+      "category": "clickbait",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_139",
+      "word": "触目惊心",
+      "category": "clickbait",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_140",
+      "word": "不敢相信",
+      "category": "clickbait",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_141",
+      "word": "万万没想到",
+      "category": "clickbait",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_142",
+      "word": "竟然",
+      "category": "clickbait",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_143",
+      "word": "居然",
+      "category": "clickbait",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_144",
+      "word": "真相",
+      "category": "clickbait",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_145",
+      "word": "内幕",
+      "category": "clickbait",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    },
+    {
+      "id": "kw_146",
+      "word": "黑幕",
+      "category": "clickbait",
+      "source": "builtin",
+      "blockCount": 0,
+      "createdAt": "2026-08-11T10:00:00"
+    }
+  ]
+}

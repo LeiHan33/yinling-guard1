@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.yinling.guard.core.engine.GuardEngineTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2026-08-12T06:57:13" hostname="claw-6884567111-overseas-55b479dc54-84s8k" time="0.03">
+  <properties/>
+  <testcase name="log entry contains correct data" classname="com.yinling.guard.core.engine.GuardEngineTest" time="0.026"/>
+  <testcase name="match result reason is correct for keyword" classname="com.yinling.guard.core.engine.GuardEngineTest" time="0.0"/>
+  <testcase name="blacklist match creates log entry" classname="com.yinling.guard.core.engine.GuardEngineTest" time="0.0"/>
+  <testcase name="blocks when keyword matches and guard enabled" classname="com.yinling.guard.core.engine.GuardEngineTest" time="0.0"/>
+  <testcase name="does not block when guard disabled" classname="com.yinling.guard.core.engine.GuardEngineTest" time="0.0"/>
+  <testcase name="whitelist prevents blocking" classname="com.yinling.guard.core.engine.GuardEngineTest" time="0.001"/>
+  <testcase name="does not block when no match" classname="com.yinling.guard.core.engine.GuardEngineTest" time="0.0"/>
+  <testcase name="match result reason is correct for blacklist" classname="com.yinling.guard.core.engine.GuardEngineTest" time="0.0"/>
+  <testcase name="log entry title truncated to 120 chars" classname="com.yinling.guard.core.engine.GuardEngineTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

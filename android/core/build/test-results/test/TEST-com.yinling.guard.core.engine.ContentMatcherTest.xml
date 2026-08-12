@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.yinling.guard.core.engine.ContentMatcherTest" tests="24" skipped="0" failures="0" errors="0" timestamp="2026-08-12T06:57:13" hostname="claw-6884567111-overseas-55b479dc54-84s8k" time="0.172">
+  <properties/>
+  <testcase name="author whitelist only matches author" classname="com.yinling.guard.core.engine.ContentMatcherTest" time="0.138"/>
+  <testcase name="match returns first matching keyword" classname="com.yinling.guard.core.engine.ContentMatcherTest" time="0.023"/>
+  <testcase name="blacklist takes priority over keyword" classname="com.yinling.guard.core.engine.ContentMatcherTest" time="0.0"/>
+  <testcase name="keyword match when title contains keyword" classname="com.yinling.guard.core.engine.ContentMatcherTest" time="0.0"/>
+  <testcase name="blacklist case insensitive" classname="com.yinling.guard.core.engine.ContentMatcherTest" time="0.0"/>
+  <testcase name="blacklist partial match" classname="com.yinling.guard.core.engine.ContentMatcherTest" time="0.0"/>
+  <testcase name="keyword whitelist only matches title" classname="com.yinling.guard.core.engine.ContentMatcherTest" time="0.0"/>
+  <testcase name="empty title and author returns no match" classname="com.yinling.guard.core.engine.ContentMatcherTest" time="0.0"/>
+  <testcase name="no match when title has no keywords" classname="com.yinling.guard.core.engine.ContentMatcherTest" time="0.0"/>
+  <testcase name="multiple keywords match first one" classname="com.yinling.guard.core.engine.ContentMatcherTest" time="0.0"/>
+  <testcase name="blacklist returns category as blacklist" classname="com.yinling.guard.core.engine.ContentMatcherTest" time="0.0"/>
+  <testcase name="empty everything returns no match" classname="com.yinling.guard.core.engine.ContentMatcherTest" time="0.0"/>
+  <testcase name="keyword match returns correct category" classname="com.yinling.guard.core.engine.ContentMatcherTest" time="0.0"/>
+  <testcase name="title with only spaces returns no match" classname="com.yinling.guard.core.engine.ContentMatcherTest" time="0.002"/>
+  <testcase name="whitelist overrides keyword match" classname="com.yinling.guard.core.engine.ContentMatcherTest" time="0.0"/>
+  <testcase name="blacklist ignores empty author" classname="com.yinling.guard.core.engine.ContentMatcherTest" time="0.002"/>
+  <testcase name="match is case insensitive" classname="com.yinling.guard.core.engine.ContentMatcherTest" time="0.0"/>
+  <testcase name="non-douyin package returns no match" classname="com.yinling.guard.core.engine.ContentMatcherTest" time="0.0"/>
+  <testcase name="empty whitelist does not block" classname="com.yinling.guard.core.engine.ContentMatcherTest" time="0.0"/>
+  <testcase name="whitelist does not affect non-matching content" classname="com.yinling.guard.core.engine.ContentMatcherTest" time="0.0"/>
+  <testcase name="douyin package matches" classname="com.yinling.guard.core.engine.ContentMatcherTest" time="0.0"/>
+  <testcase name="whitelist overrides blacklist match" classname="com.yinling.guard.core.engine.ContentMatcherTest" time="0.0"/>
+  <testcase name="blacklist match when author matches" classname="com.yinling.guard.core.engine.ContentMatcherTest" time="0.001"/>
+  <testcase name="blacklist match returns author name as keyword" classname="com.yinling.guard.core.engine.ContentMatcherTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

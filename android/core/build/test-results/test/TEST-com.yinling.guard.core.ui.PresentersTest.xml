@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.yinling.guard.core.ui.PresentersTest" tests="12" skipped="0" failures="0" errors="0" timestamp="2026-08-12T06:57:14" hostname="claw-6884567111-overseas-55b479dc54-84s8k" time="0.073">
+  <properties/>
+  <testcase name="HomePresenter evening greeting" classname="com.yinling.guard.core.ui.PresentersTest" time="0.026"/>
+  <testcase name="HomePresenter morning greeting" classname="com.yinling.guard.core.ui.PresentersTest" time="0.001"/>
+  <testcase name="HomePresenter afternoon greeting" classname="com.yinling.guard.core.ui.PresentersTest" time="0.001"/>
+  <testcase name="HomePresenter calculates today count" classname="com.yinling.guard.core.ui.PresentersTest" time="0.001"/>
+  <testcase name="RecordsPresenter filters today" classname="com.yinling.guard.core.ui.PresentersTest" time="0.023"/>
+  <testcase name="SettingsPresenter setGuardEnabled persists" classname="com.yinling.guard.core.ui.PresentersTest" time="0.004"/>
+  <testcase name="SettingsPresenter setToastEnabled persists" classname="com.yinling.guard.core.ui.PresentersTest" time="0.001"/>
+  <testcase name="HomePresenter shows accessibility status" classname="com.yinling.guard.core.ui.PresentersTest" time="0.0"/>
+  <testcase name="SettingsPresenter returns correct state" classname="com.yinling.guard.core.ui.PresentersTest" time="0.005"/>
+  <testcase name="HomePresenter shows closed when guard disabled" classname="com.yinling.guard.core.ui.PresentersTest" time="0.001"/>
+  <testcase name="SettingsPresenter sets firstGuardDate when enabling" classname="com.yinling.guard.core.ui.PresentersTest" time="0.001"/>
+  <testcase name="RecordsPresenter filters all" classname="com.yinling.guard.core.ui.PresentersTest" time="0.007"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
