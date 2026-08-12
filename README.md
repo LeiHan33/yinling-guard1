@@ -6,7 +6,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/LeiHan33/yinling-guard1/releases/tag/v1.0.1"><img src="https://img.shields.io/badge/version-v1.0.1-2E7D32?style=flat-square" alt="version"></a>
+  <a href="https://github.com/LeiHan33/yinling-guard1/releases/tag/v1.0.2"><img src="https://img.shields.io/badge/version-v1.0.2-2E7D32?style=flat-square" alt="version"></a>
   <a href="https://github.com/LeiHan33/yinling-guard1/actions/workflows/build-apk.yml"><img src="https://img.shields.io/badge/build-GitHub%20Actions-1B5E20?style=flat-square" alt="build"></a>
   <a href="https://leihan33.github.io/yinling-guard1/"><img src="https://img.shields.io/badge/UI-Live%20Preview-A5D6A7?style=flat-square&color=212121" alt="ui preview"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue?style=flat-square" alt="license"></a>
@@ -18,8 +18,8 @@
 
 | | |
 |---|---|
-| **中文** | **[⬇️ 下载 APK v1.0.1](https://github.com/LeiHan33/yinling-guard1/releases/download/v1.0.1/yinling-guard-v1.0.1-debug.apk)** — 含 P0–P2 功能与 Material UI 优化 |
-| **English** | **[⬇️ Download APK v1.0.1](https://github.com/LeiHan33/yinling-guard1/releases/download/v1.0.1/yinling-guard-v1.0.1-debug.apk)** — P0–P2 features + Material UI polish |
+| **中文** | **[⬇️ 下载 APK v1.0.2](https://github.com/LeiHan33/yinling-guard1/releases/download/v1.0.2/yinling-guard-v1.0.2-debug.apk)** — 修复设置页闪退 |
+| **English** | **[⬇️ Download APK v1.0.2](https://github.com/LeiHan33/yinling-guard1/releases/download/v1.0.2/yinling-guard-v1.0.2-debug.apk)** — Fixes Settings crash |
 
 > **自动构建 Auto-build：** 推送 `v*` 标签到 `main` 后，[GitHub Actions](https://github.com/LeiHan33/yinling-guard1/actions/workflows/build-apk.yml) 自动构建并发布 APK。  
 > Push a `v*` tag to `main` to trigger an automated APK build and release.

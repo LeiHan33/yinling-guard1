@@ -54,10 +54,11 @@ class SettingsFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        render()
+        if (_binding != null) render()
     }
 
     private fun render() {
+        val binding = _binding ?: return
         val state = ServiceLocator.settingsPresenter.buildState()
         suppressSwitchCallback = true
         binding.guardSwitch.isChecked = state.guardEnabled
@@ -116,8 +117,8 @@ class SettingsFragment : Fragment() {
     }
 
     override fun onDestroyView() {
-        binding.guardSwitch.setOnCheckedChangeListener(null)
-        binding.toastSwitch.setOnCheckedChangeListener(null)
+        _binding?.guardSwitch?.setOnCheckedChangeListener(null)
+        _binding?.toastSwitch?.setOnCheckedChangeListener(null)
         super.onDestroyView()
         _binding = null
     }
