@@ -3,234 +3,231 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>银龄守护 - UI 预览</title>
+<title>银龄守护 - UI 预览 v1.0</title>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: -apple-system, "PingFang SC", "Helvetica Neue", sans-serif; background: #f0f2f5; color: #333; }
 
-/* 顶部工具栏 */
 .toolbar {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   background: #1B5E20; color: #fff; padding: 12px 24px;
-  display: flex; align-items: center; gap: 16px;
+  display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
   box-shadow: 0 2px 8px rgba(0,0,0,.2);
 }
-.toolbar h1 { font-size: 18px; font-weight: 600; }
+.toolbar h1 { font-size: 18px; font-weight: 600; white-space: nowrap; }
 .toolbar .tabs { display: flex; gap: 4px; flex-wrap: wrap; }
 .toolbar .tab {
-  padding: 6px 14px; border-radius: 20px; cursor: pointer;
-  font-size: 13px; background: rgba(255,255,255,.15); color: #fff;
+  padding: 6px 12px; border-radius: 20px; cursor: pointer;
+  font-size: 12px; background: rgba(255,255,255,.15); color: #fff;
   border: none; transition: all .2s;
 }
 .toolbar .tab:hover { background: rgba(255,255,255,.25); }
 .toolbar .tab.active { background: #fff; color: #1B5E20; font-weight: 600; }
 
-/* 手机外壳 */
-.phone-area {
-  display: flex; justify-content: center; padding-top: 80px; min-height: 100vh;
-}
+.phone-area { display: flex; justify-content: center; padding: 88px 16px 24px; min-height: 100vh; }
 .phone {
-  width: 375px; height: 812px; background: #fff;
+  width: 375px; min-height: 812px; background: #fff;
   border-radius: 40px; overflow: hidden;
   box-shadow: 0 20px 60px rgba(0,0,0,.15), 0 0 0 2px #222;
-  position: relative; margin: 20px 0;
+  position: relative;
 }
 .phone-notch {
   position: absolute; top: 0; left: 50%; transform: translateX(-50%);
   width: 150px; height: 30px; background: #222;
   border-radius: 0 0 20px 20px; z-index: 10;
 }
-
-/* 状态栏 */
 .status-bar {
   height: 44px; background: #1B5E20; display: flex;
   align-items: center; justify-content: space-between;
   padding: 0 24px; color: #fff; font-size: 12px;
 }
-
-/* 页面容器 */
-.screen { display: none; height: calc(100% - 44px); overflow-y: auto; flex-direction: column; }
+.screen { display: none; min-height: calc(812px - 44px); flex-direction: column; background: #f5f5f5; }
 .screen.active { display: flex; }
 
-/* 底部 Tab */
 .bottom-tab {
   display: flex; background: #fff; border-top: 1px solid #e0e0e0;
-  padding: 6px 0 20px; flex-shrink: 0;
+  padding: 6px 0 20px; flex-shrink: 0; margin-top: auto;
 }
-.bottom-tab .tab-item {
-  flex: 1; text-align: center; padding: 4px 0; cursor: pointer;
-  transition: color .2s;
-}
+.bottom-tab .tab-item { flex: 1; text-align: center; padding: 4px 0; cursor: pointer; }
 .bottom-tab .tab-item .icon { font-size: 22px; }
 .bottom-tab .tab-item .label { font-size: 11px; margin-top: 2px; color: #9e9e9e; }
 .bottom-tab .tab-item.active .label { color: #2E7D32; font-weight: 600; }
 
-/* ===== 引导页 ===== */
-.onboarding {
-  flex: 1; display: flex; flex-direction: column; align-items: center;
-  justify-content: center; padding: 40px 32px; background: #fff;
+/* 引导页 */
+.ob-page { flex: 1; padding: 24px; display: flex; flex-direction: column; background: #f5f5f5; }
+.ob-step { font-size: 14px; color: #757575; margin-bottom: 16px; }
+.ob-title { font-size: 24px; font-weight: 700; color: #212121; margin-bottom: 8px; }
+.ob-center { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 16px 0; }
+.ob-badge {
+  width: 80px; height: 80px; border-radius: 50%; background: #A5D6A7;
+  display: flex; align-items: center; justify-content: center; font-size: 36px; margin-bottom: 24px;
 }
-.onboarding .icon { font-size: 80px; margin-bottom: 32px; }
-.onboarding .title { font-size: 28px; font-weight: 700; color: #212121; margin-bottom: 16px; text-align: center; }
-.onboarding .desc { font-size: 16px; color: #757575; text-align: center; line-height: 1.6; margin-bottom: 48px; white-space: pre-line; }
-.onboarding .btn {
-  width: 100%; padding: 16px; background: #2E7D32; color: #fff;
-  border: none; border-radius: 12px; font-size: 18px; font-weight: 600;
-  cursor: pointer; transition: background .2s;
+.ob-desc { font-size: 15px; color: #757575; line-height: 1.6; max-width: 280px; white-space: pre-line; }
+.ob-btn {
+  width: 100%; padding: 14px; background: #2E7D32; color: #fff;
+  border: none; border-radius: 12px; font-size: 16px; font-weight: 600; cursor: pointer;
 }
-.onboarding .btn:hover { background: #1B5E20; }
-.onboarding .dots { display: flex; gap: 8px; margin-top: 24px; }
-.onboarding .dot { width: 10px; height: 10px; border-radius: 50%; background: #e0e0e0; }
-.onboarding .dot.active { background: #2E7D32; }
+.ob-btn-outline {
+  width: 100%; padding: 14px; background: #fff; color: #2E7D32;
+  border: 1px solid #2E7D32; border-radius: 12px; font-size: 16px; margin-top: 12px; cursor: pointer;
+}
+.ob-btn:disabled, .ob-btn-outline:disabled { opacity: .45; cursor: not-allowed; }
+.feature-card {
+  background: #fff; border-radius: 12px; padding: 16px; margin-bottom: 12px;
+  display: flex; gap: 16px; align-items: center; box-shadow: 0 1px 3px rgba(0,0,0,.08);
+}
+.feature-card .ficon {
+  width: 48px; height: 48px; border-radius: 50%; background: #A5D6A7;
+  display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0;
+}
+.feature-card .ftitle { font-size: 16px; font-weight: 600; color: #212121; }
+.feature-card .fdesc { font-size: 14px; color: #757575; margin-top: 4px; }
 
-/* ===== 首页 ===== */
-.home { flex: 1; background: #f5f5f5; padding: 16px; overflow-y: auto; }
+/* 首页 */
+.home { flex: 1; padding: 20px; overflow-y: auto; position: relative; }
 .home .greeting { font-size: 14px; color: #757575; }
-.home .page-title { font-size: 24px; font-weight: 700; margin-bottom: 16px; }
+.home .page-title { font-size: 24px; font-weight: 700; margin: 4px 0 16px; }
 .status-card {
   background: #fff; border-radius: 12px; padding: 16px;
   display: flex; align-items: center; gap: 12px;
-  box-shadow: 0 1px 3px rgba(0,0,0,.08); margin-bottom: 16px;
+  box-shadow: 0 2px 4px rgba(0,0,0,.06); margin-bottom: 12px;
 }
 .status-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
 .status-dot.green { background: #4CAF50; }
 .status-dot.gray { background: #9E9E9E; }
 .status-dot.red { background: #F44336; }
-.status-card .text { flex: 1; font-size: 16px; }
-.status-card .tag {
-  background: #2E7D32; color: #fff; font-size: 12px;
-  padding: 4px 8px; border-radius: 4px;
-}
+.status-card .text { flex: 1; font-size: 16px; font-weight: 600; }
+.status-card .tag { background: #2E7D32; color: #fff; font-size: 12px; padding: 4px 10px; border-radius: 4px; }
 .stats-row { display: flex; gap: 12px; margin-bottom: 16px; }
 .stat-card {
-  flex: 1; background: #fff; border-radius: 12px; padding: 16px;
-  text-align: center; box-shadow: 0 1px 3px rgba(0,0,0,.08);
+  flex: 1; background: #fff; border-radius: 12px; padding: 16px; text-align: center;
+  box-shadow: 0 1px 3px rgba(0,0,0,.06);
 }
-.stat-card .num { font-size: 32px; font-weight: 700; }
-.stat-card .num.green { color: #2E7D32; }
-.stat-card .num.orange { color: #FF6F00; }
+.stat-card .num { font-size: 28px; font-weight: 700; color: #2E7D32; }
 .stat-card .label { font-size: 13px; color: #757575; margin-top: 4px; }
 .section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
 .section-header .title { font-size: 16px; font-weight: 700; }
 .section-header .link { font-size: 14px; color: #2E7D32; cursor: pointer; }
 .recent-item {
-  background: #fff; border-radius: 8px; padding: 12px;
-  display: flex; align-items: center; gap: 8px; margin-bottom: 8px;
-  box-shadow: 0 1px 2px rgba(0,0,0,.05);
+  background: #fff; border-radius: 8px; padding: 12px; margin-bottom: 8px;
+  display: flex; align-items: center; gap: 8px; box-shadow: 0 1px 2px rgba(0,0,0,.05);
 }
 .recent-item .title { flex: 1; font-size: 14px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.recent-item .tag {
-  font-size: 11px; color: #fff; padding: 2px 8px; border-radius: 10px;
-  flex-shrink: 0;
+.recent-item .tag { font-size: 11px; color: #fff; padding: 2px 8px; border-radius: 12px; }
+.skip-toast {
+  position: absolute; bottom: 100px; left: 50%; transform: translateX(-50%);
+  background: rgba(46,125,50,.85); color: #fff; padding: 12px 20px;
+  border-radius: 24px; font-size: 15px; white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(0,0,0,.15); animation: fadeToast 2.5s ease-in-out infinite;
 }
-.tag-health { background: #E91E63; }
-.tag-rumor { background: #FF9800; }
-.tag-incite { background: #F44336; }
-.tag-click { background: #9C27B0; }
-.tag-bl { background: #607D8B; }
+@keyframes fadeToast { 0%,100%{opacity:0} 15%,75%{opacity:1} }
 
-/* ===== 拦截记录 ===== */
-.records { flex: 1; background: #f5f5f5; display: flex; flex-direction: column; }
-.records .header { padding: 16px; font-size: 24px; font-weight: 700; }
-.filter-row { display: flex; gap: 8px; padding: 0 16px 12px; }
+/* 记录 */
+.records-body { flex: 1; padding: 16px; overflow-y: auto; }
+.records-body .header { font-size: 24px; font-weight: 700; margin-bottom: 12px; }
+.filter-row { display: flex; gap: 8px; margin-bottom: 12px; }
 .filter-chip {
-  padding: 6px 16px; border-radius: 20px; font-size: 14px;
-  cursor: pointer; border: 1px solid #e0e0e0; background: #fff;
-  transition: all .2s;
+  padding: 6px 16px; border-radius: 20px; font-size: 14px; cursor: pointer;
+  border: 1px solid #e0e0e0; background: #fff;
 }
 .filter-chip.active { background: #2E7D32; color: #fff; border-color: #2E7D32; }
-.log-list { flex: 1; padding: 0 16px; overflow-y: auto; }
 .log-item {
   background: #fff; border-radius: 8px; padding: 12px; margin-bottom: 8px;
   box-shadow: 0 1px 2px rgba(0,0,0,.05);
 }
-.log-item .top { display: flex; justify-content: space-between; align-items: flex-start; }
-.log-item .title { font-size: 15px; flex: 1; margin-right: 8px; }
+.log-item .top { display: flex; justify-content: space-between; gap: 8px; }
+.log-item .title { font-size: 15px; flex: 1; }
 .log-item .time { font-size: 12px; color: #bdbdbd; flex-shrink: 0; }
-.log-item .bottom { display: flex; align-items: center; gap: 6px; margin-top: 6px; }
+.log-item .bottom { display: flex; align-items: center; gap: 6px; margin-top: 6px; flex-wrap: wrap; }
 .log-item .kw { font-size: 12px; color: #2E7D32; background: #e8f5e9; padding: 2px 8px; border-radius: 10px; }
-.log-item .cat { font-size: 12px; padding: 2px 8px; border-radius: 10px; }
+.log-item .cat { font-size: 12px; color: #fff; padding: 2px 8px; border-radius: 10px; }
 .log-item .author { font-size: 12px; color: #757575; margin-left: auto; }
+.tag-health { background: #E91E63; }
+.tag-rumor { background: #FF9800; }
+.tag-incite { background: #F44336; }
+.tag-click { background: #9C27B0; }
 
-/* ===== 设置 ===== */
-.settings { flex: 1; background: #f5f5f5; padding: 16px; overflow-y: auto; }
-.settings .header { font-size: 24px; font-weight: 700; margin-bottom: 16px; }
-.setting-card {
-  background: #fff; border-radius: 12px; padding: 16px;
-  display: flex; align-items: center; margin-bottom: 8px;
-  box-shadow: 0 1px 2px rgba(0,0,0,.05); cursor: pointer;
+/* 设置 */
+.settings-body { flex: 1; padding: 16px; overflow-y: auto; }
+.settings-body .header { font-size: 24px; font-weight: 700; margin-bottom: 16px; }
+.card {
+  background: #fff; border-radius: 12px; padding: 16px; margin-bottom: 8px;
+  box-shadow: 0 1px 2px rgba(0,0,0,.05);
 }
-.setting-card .info { flex: 1; }
-.setting-card .info .name { font-size: 16px; }
-.setting-card .info .desc { font-size: 12px; color: #757575; margin-top: 2px; }
-.setting-card .arrow { font-size: 20px; color: #bdbdbd; }
-.toggle {
-  width: 48px; height: 28px; border-radius: 14px; position: relative;
-  cursor: pointer; transition: background .2s; flex-shrink: 0;
-}
-.toggle.on { background: #4CAF50; }
-.toggle.off { background: #bdbdbd; }
+.card-row { display: flex; align-items: center; padding: 8px 0; }
+.card-row + .card-row { border-top: 1px solid #e0e0e0; }
+.card-row .info { flex: 1; }
+.card-row .name { font-size: 16px; }
+.card-row .desc { font-size: 12px; color: #757575; margin-top: 2px; }
+.toggle { width: 48px; height: 28px; border-radius: 14px; position: relative; cursor: pointer; flex-shrink: 0; }
+.toggle.on { background: #4CAF50; } .toggle.off { background: #bdbdbd; }
 .toggle .knob {
   width: 22px; height: 22px; border-radius: 50%; background: #fff;
-  position: absolute; top: 3px; transition: left .2s;
-  box-shadow: 0 1px 3px rgba(0,0,0,.2);
+  position: absolute; top: 3px; box-shadow: 0 1px 3px rgba(0,0,0,.2);
 }
-.toggle.on .knob { left: 23px; }
-.toggle.off .knob { left: 3px; }
-.version { text-align: center; color: #bdbdbd; font-size: 12px; padding: 16px; }
+.toggle.on .knob { left: 23px; } .toggle.off .knob { left: 3px; }
+.btn-primary {
+  width: 100%; padding: 14px; background: #2E7D32; color: #fff;
+  border: none; border-radius: 8px; font-size: 16px; margin-top: 8px; cursor: pointer;
+}
+.btn-outline {
+  width: 100%; padding: 14px; background: #fff; color: #2E7D32;
+  border: 1px solid #2E7D32; border-radius: 8px; font-size: 16px; margin-top: 8px; cursor: pointer;
+}
+.version { text-align: center; color: #bdbdbd; font-size: 12px; padding: 24px 0 8px; }
 
-/* ===== 子女管理 ===== */
-.family { flex: 1; background: #f5f5f5; display: flex; flex-direction: column; }
-.family-header {
+/* 子女管理 */
+.sub-header {
   background: #2E7D32; color: #fff; padding: 16px; display: flex;
   align-items: center; gap: 12px; font-size: 20px; font-weight: 600;
 }
-.family-header .back { font-size: 24px; cursor: pointer; }
-.family-body { flex: 1; padding: 16px; overflow-y: auto; }
+.sub-header .back { font-size: 28px; cursor: pointer; line-height: 1; }
+.sub-body { flex: 1; padding: 16px; overflow-y: auto; position: relative; }
 .family-stats { display: flex; gap: 8px; margin-bottom: 16px; }
 .family-stat {
-  flex: 1; background: #fff; border-radius: 8px; padding: 12px;
-  text-align: center; box-shadow: 0 1px 2px rgba(0,0,0,.05);
+  flex: 1; background: #fff; border-radius: 8px; padding: 12px; text-align: center;
+  box-shadow: 0 1px 2px rgba(0,0,0,.05);
 }
 .family-stat .num { font-size: 24px; font-weight: 700; }
 .family-stat .num.green { color: #2E7D32; }
 .family-stat .num.orange { color: #FF6F00; }
 .family-stat .num.gray { color: #757575; }
 .family-stat .label { font-size: 12px; color: #757575; margin-top: 4px; }
+.menu-card {
+  background: #fff; border-radius: 12px; padding: 16px; margin-bottom: 8px;
+  display: flex; align-items: center; box-shadow: 0 1px 2px rgba(0,0,0,.05); cursor: pointer;
+}
+.menu-card .name { flex: 1; font-size: 16px; }
+.menu-card .arrow { color: #bdbdbd; font-size: 22px; }
 
-/* ===== 屏蔽词管理 ===== */
-.kw-list { flex: 1; overflow-y: auto; padding: 0 16px 16px; }
-.kw-chips { display: flex; gap: 6px; padding: 12px 16px; overflow-x: auto; }
+.kw-chips { display: flex; gap: 6px; padding: 12px 16px; overflow-x: auto; background: #f5f5f5; }
 .kw-chip {
-  padding: 6px 14px; border-radius: 20px; font-size: 13px;
-  cursor: pointer; border: 1px solid #e0e0e0; background: #fff;
-  white-space: nowrap; transition: all .2s;
+  padding: 6px 14px; border-radius: 20px; font-size: 13px; cursor: pointer;
+  border: 1px solid #e0e0e0; background: #fff; white-space: nowrap;
 }
 .kw-chip.active { background: #2E7D32; color: #fff; border-color: #2E7D32; }
-.kw-item {
-  background: #fff; border-radius: 8px; padding: 12px; margin-bottom: 6px;
+.kw-item, .bl-item, .wl-item {
+  background: #fff; border-radius: 8px; padding: 12px; margin: 0 16px 6px;
   display: flex; align-items: center; box-shadow: 0 1px 2px rgba(0,0,0,.05);
 }
 .kw-item .info { flex: 1; }
 .kw-item .word { font-size: 16px; }
 .kw-item .meta { display: flex; gap: 8px; margin-top: 4px; align-items: center; }
-.kw-item .cat-tag { font-size: 11px; padding: 2px 8px; border-radius: 10px; }
+.kw-item .cat-tag { font-size: 11px; color: #fff; padding: 2px 8px; border-radius: 10px; }
 .kw-item .count { font-size: 11px; color: #bdbdbd; }
-.kw-item .del { font-size: 18px; cursor: pointer; padding: 4px; }
+.wl-item .type { font-size: 12px; color: #757575; margin-top: 4px; }
 .fab {
   position: absolute; bottom: 24px; right: 24px; width: 56px; height: 56px;
   border-radius: 50%; background: #2E7D32; color: #fff; font-size: 28px;
-  display: flex; align-items: center; justify-content: center;
-  cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,.2);
-  border: none; transition: transform .2s;
+  display: flex; align-items: center; justify-content: center; cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,.2); border: none;
 }
-.fab:hover { transform: scale(1.1); }
 
-/* ===== 弹窗 ===== */
+.help-body { flex: 1; padding: 20px; overflow-y: auto; line-height: 1.7; font-size: 15px; color: #212121; white-space: pre-line; }
+
 .modal-overlay {
-  display: none; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0,0,0,.5); z-index: 50; align-items: center; justify-content: center;
-  padding: 24px;
+  display: none; position: absolute; inset: 0; background: rgba(0,0,0,.5);
+  z-index: 50; align-items: center; justify-content: center; padding: 24px;
 }
 .modal-overlay.show { display: flex; }
 .modal {
@@ -238,164 +235,124 @@ body { font-family: -apple-system, "PingFang SC", "Helvetica Neue", sans-serif; 
   max-width: 320px; box-shadow: 0 10px 40px rgba(0,0,0,.2);
 }
 .modal h3 { font-size: 20px; text-align: center; margin-bottom: 8px; }
-.modal p { font-size: 14px; color: #757575; text-align: center; margin-bottom: 16px; }
+.modal .sub { font-size: 14px; color: #757575; text-align: center; margin-bottom: 16px; }
 .modal input {
   width: 100%; padding: 12px 16px; border: 1px solid #e0e0e0; border-radius: 8px;
   font-size: 16px; margin-bottom: 12px; outline: none;
 }
 .modal input:focus { border-color: #2E7D32; }
+.modal .radio-group { margin-bottom: 16px; }
+.modal .radio-group label { display: block; padding: 8px 0; font-size: 15px; cursor: pointer; }
 .modal .error { color: #F44336; font-size: 12px; margin-bottom: 8px; display: none; }
 .modal .btns { display: flex; justify-content: flex-end; gap: 8px; }
-.modal .btn-cancel {
-  padding: 10px 20px; background: none; border: none;
-  color: #757575; font-size: 15px; cursor: pointer;
-}
-.modal .btn-ok {
-  padding: 10px 20px; background: #2E7D32; color: #fff;
-  border: none; border-radius: 8px; font-size: 15px; cursor: pointer;
-}
-.modal select {
-  width: 100%; padding: 10px; border: 1px solid #e0e0e0; border-radius: 8px;
-  font-size: 14px; margin-bottom: 16px;
-}
-
-/* 黑名单 */
-.bl-item {
-  background: #fff; border-radius: 8px; padding: 12px; margin-bottom: 6px;
-  display: flex; align-items: center; box-shadow: 0 1px 2px rgba(0,0,0,.05);
-}
-.bl-item .name { flex: 1; font-size: 16px; }
-.bl-item .del { font-size: 18px; cursor: pointer; padding: 4px; }
-
-/* 空状态 */
-.empty-state {
-  flex: 1; display: flex; align-items: center; justify-content: center;
-  color: #bdbdbd; font-size: 16px; padding: 40px;
-}
+.modal .btn-cancel { padding: 10px 20px; background: none; border: none; color: #757575; cursor: pointer; }
+.modal .btn-ok { padding: 10px 20px; background: #2E7D32; color: #fff; border: none; border-radius: 8px; cursor: pointer; }
 </style>
 </head>
 <body>
 
-<!-- 工具栏 -->
 <div class="toolbar">
   <h1>🛡️ 银龄守护 UI</h1>
   <div class="tabs">
-    <button class="tab active" onclick="showScreen('onboarding1')">引导1</button>
-    <button class="tab" onclick="showScreen('onboarding2')">引导2</button>
-    <button class="tab" onclick="showScreen('onboarding3')">引导3</button>
-    <button class="tab" onclick="showScreen('onboarding4')">引导4</button>
+    <button class="tab active" onclick="showScreen('ob1')">引导1</button>
+    <button class="tab" onclick="showScreen('ob2')">引导2</button>
+    <button class="tab" onclick="showScreen('ob3')">引导3</button>
+    <button class="tab" onclick="showScreen('ob4')">引导4</button>
     <button class="tab" onclick="showScreen('home')">首页</button>
     <button class="tab" onclick="showScreen('records')">记录</button>
     <button class="tab" onclick="showScreen('settings')">设置</button>
+    <button class="tab" onclick="showScreen('help')">帮助</button>
     <button class="tab" onclick="showScreen('family')">子女管理</button>
     <button class="tab" onclick="showScreen('keywords')">屏蔽词</button>
     <button class="tab" onclick="showScreen('blacklist')">黑名单</button>
+    <button class="tab" onclick="showScreen('whitelist')">白名单</button>
   </div>
 </div>
 
 <div class="phone-area">
-<div class="phone" id="phone">
+<div class="phone">
 <div class="phone-notch"></div>
 
-<!-- ==================== 引导页 1 ==================== -->
-<div class="screen active" id="screen-onboarding1">
+<!-- 引导 1 -->
+<div class="screen active" id="screen-ob1">
   <div class="status-bar"><span>13:24</span><span>📶 🔋</span></div>
-  <div class="onboarding">
-    <div class="icon">🛡️</div>
-    <div class="title">银龄守护</div>
-    <div class="desc">帮您守护老人，远离短视频谣言和骗局</div>
-    <button class="btn" onclick="showScreen('onboarding2')">开始使用</button>
-    <div class="dots">
-      <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+  <div class="ob-page">
+    <div class="ob-step">步骤 1 / 4</div>
+    <div class="ob-center">
+      <div class="ob-badge">🛡️</div>
+      <div class="ob-title" style="font-size:32px;color:#2E7D32">银龄守护</div>
+      <div class="ob-desc" style="margin-top:16px">帮您自动跳过\n谣言、骗局和煽动性短视频</div>
     </div>
+    <button class="ob-btn" onclick="showScreen('ob2')">开始使用</button>
   </div>
 </div>
 
-<!-- ==================== 引导页 2 ==================== -->
-<div class="screen" id="screen-onboarding2">
+<!-- 引导 2 -->
+<div class="screen" id="screen-ob2">
   <div class="status-bar"><span>13:24</span><span>📶 🔋</span></div>
-  <div class="onboarding">
-    <div class="icon">📋</div>
-    <div class="title">它能做什么？</div>
-    <div class="desc">• 自动跳过养生骗局、谣言、煽动类视频
-• 子女可配置屏蔽词和黑名单
-• 所有数据仅存本地，不上传云端</div>
-    <button class="btn" onclick="showScreen('onboarding3')">下一步</button>
-    <div class="dots">
-      <div class="dot"></div><div class="dot active"></div><div class="dot"></div><div class="dot"></div>
+  <div class="ob-page">
+    <div class="ob-step">步骤 2 / 4</div>
+    <div class="ob-title">功能介绍</div>
+    <div style="flex:1;margin-top:24px;overflow-y:auto">
+      <div class="feature-card"><div class="ficon">🔍</div><div><div class="ftitle">自动识别</div><div class="fdesc">检测视频标题中的谣言、养生骗局关键词</div></div></div>
+      <div class="feature-card"><div class="ficon">⏭️</div><div><div class="ftitle">自动跳过</div><div class="fdesc">发现可疑内容时滑到下一个视频</div></div></div>
+      <div class="feature-card"><div class="ficon">👨‍👩‍👧</div><div><div class="ftitle">家人可管理</div><div class="fdesc">子女可添加新的屏蔽词和黑名单</div></div></div>
     </div>
+    <button class="ob-btn" onclick="showScreen('ob3')">下一步</button>
   </div>
 </div>
 
-<!-- ==================== 引导页 3 ==================== -->
-<div class="screen" id="screen-onboarding3">
+<!-- 引导 3 -->
+<div class="screen" id="screen-ob3">
   <div class="status-bar"><span>13:24</span><span>📶 🔋</span></div>
-  <div class="onboarding">
-    <div class="icon">⚙️</div>
-    <div class="title">开启守护权限</div>
-    <div class="desc">需要开启无障碍权限，才能在抖音中自动跳过有害内容</div>
-    <button class="btn" onclick="showScreen('onboarding4')">去开启权限</button>
-    <div class="dots">
-      <div class="dot"></div><div class="dot"></div><div class="dot active"></div><div class="dot"></div>
+  <div class="ob-page">
+    <div class="ob-step">步骤 3 / 4</div>
+    <div class="ob-center">
+      <div class="ob-badge">🔐</div>
+      <div class="ob-title">开启无障碍权限</div>
+      <div class="ob-desc" style="margin-top:12px">需要开启「无障碍服务」才能读取抖音视频标题</div>
     </div>
+    <button class="ob-btn" onclick="showScreen('ob4')">去开启权限</button>
+    <button class="ob-btn-outline" disabled>我已开启，继续</button>
   </div>
 </div>
 
-<!-- ==================== 引导页 4 ==================== -->
-<div class="screen" id="screen-onboarding4">
+<!-- 引导 4 -->
+<div class="screen" id="screen-ob4">
   <div class="status-bar"><span>13:24</span><span>📶 🔋</span></div>
-  <div class="onboarding">
-    <div class="icon">✅</div>
-    <div class="title">设置完成！</div>
-    <div class="desc">守护已开启，您可以安心刷抖音了</div>
-    <button class="btn" onclick="showScreen('home')">进入首页</button>
-    <div class="dots">
-      <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot active"></div>
+  <div class="ob-page">
+    <div class="ob-step">步骤 4 / 4</div>
+    <div class="ob-center">
+      <div class="ob-badge">✅</div>
+      <div class="ob-title">守护已开启<br>设置完成</div>
     </div>
+    <button class="ob-btn" onclick="showScreen('home')">进入首页</button>
   </div>
 </div>
 
-<!-- ==================== 首页 ==================== -->
+<!-- 首页 -->
 <div class="screen" id="screen-home">
   <div class="status-bar"><span>13:24</span><span>📶 🔋</span></div>
   <div class="home">
+    <div class="skip-toast">已跳过可疑内容</div>
     <div class="greeting">下午好，守护中</div>
     <div class="page-title">银龄守护</div>
-
     <div class="status-card">
       <div class="status-dot green"></div>
       <div class="text">正在保护</div>
       <div class="tag">抖音</div>
     </div>
-
     <div class="stats-row">
-      <div class="stat-card">
-        <div class="num green">12</div>
-        <div class="label">今日拦截</div>
-      </div>
-      <div class="stat-card">
-        <div class="num orange">3</div>
-        <div class="label">累计守护</div>
-      </div>
+      <div class="stat-card"><div class="num">12</div><div class="label">今日拦截</div></div>
+      <div class="stat-card"><div class="num">3天</div><div class="label">累计守护</div></div>
     </div>
-
     <div class="section-header">
       <div class="title">最近拦截</div>
       <div class="link" onclick="switchTab('records')">查看全部 ›</div>
     </div>
-
-    <div class="recent-item">
-      <div class="title">震惊！某国即将崩溃...</div>
-      <div class="tag tag-incite">崩溃</div>
-    </div>
-    <div class="recent-item">
-      <div class="title">医院不想让你知道的秘方</div>
-      <div class="tag tag-health">秘方</div>
-    </div>
-    <div class="recent-item">
-      <div class="title">99%的人不知道的真相</div>
-      <div class="tag tag-click">99%</div>
-    </div>
+    <div class="recent-item"><div class="title">震惊！某国即将崩溃...</div><div class="tag tag-incite">崩溃</div></div>
+    <div class="recent-item"><div class="title">医院不想让你知道的秘方</div><div class="tag tag-health">秘方</div></div>
+    <div class="recent-item"><div class="title">99%的人不知道的真相</div><div class="tag tag-click">99%</div></div>
   </div>
   <div class="bottom-tab">
     <div class="tab-item active" onclick="switchTab('home')"><div class="icon">🏠</div><div class="label">首页</div></div>
@@ -404,66 +361,19 @@ body { font-family: -apple-system, "PingFang SC", "Helvetica Neue", sans-serif; 
   </div>
 </div>
 
-<!-- ==================== 拦截记录 ==================== -->
+<!-- 拦截记录 -->
 <div class="screen" id="screen-records">
   <div class="status-bar"><span>13:24</span><span>📶 🔋</span></div>
-  <div class="records">
+  <div class="records-body">
     <div class="header">拦截记录</div>
     <div class="filter-row">
       <div class="filter-chip active" onclick="setFilter(this)">今天</div>
       <div class="filter-chip" onclick="setFilter(this)">昨天</div>
       <div class="filter-chip" onclick="setFilter(this)">全部</div>
     </div>
-    <div class="log-list">
-      <div class="log-item">
-        <div class="top"><div class="title">震惊！某国即将崩溃，内部消息曝光</div><div class="time">14:32</div></div>
-        <div class="bottom">
-          <div class="kw">内部消息</div>
-          <div class="cat tag-incite">煽动</div>
-          <div class="author">@某某说天下</div>
-        </div>
-      </div>
-      <div class="log-item">
-        <div class="top"><div class="title">医院不想让你知道的秘方，一吃就好</div><div class="time">14:28</div></div>
-        <div class="bottom">
-          <div class="kw">秘方</div>
-          <div class="cat tag-health">养生骗局</div>
-          <div class="author">@养生堂</div>
-        </div>
-      </div>
-      <div class="log-item">
-        <div class="top"><div class="title">99%的人不知道！速看马上删</div><div class="time">14:15</div></div>
-        <div class="bottom">
-          <div class="kw">速看</div>
-          <div class="cat tag-click">标题党</div>
-          <div class="author">@热搜精选</div>
-        </div>
-      </div>
-      <div class="log-item">
-        <div class="top"><div class="title">央视不敢播！刚刚发生的真相</div><div class="time">13:56</div></div>
-        <div class="bottom">
-          <div class="kw">央视不敢播</div>
-          <div class="cat tag-rumor">谣言</div>
-          <div class="author">@真相揭秘</div>
-        </div>
-      </div>
-      <div class="log-item">
-        <div class="top"><div class="title">祖传秘方治百病，药到病除</div><div class="time">13:42</div></div>
-        <div class="bottom">
-          <div class="kw">治百病</div>
-          <div class="cat tag-health">养生骗局</div>
-          <div class="author">@老中医说</div>
-        </div>
-      </div>
-      <div class="log-item">
-        <div class="top"><div class="title">不转不是中国人！紧急通知</div><div class="time">13:30</div></div>
-        <div class="bottom">
-          <div class="kw">不转不是中国人</div>
-          <div class="cat tag-rumor">谣言</div>
-          <div class="author">@爱国先锋</div>
-        </div>
-      </div>
-    </div>
+    <div class="log-item"><div class="top"><div class="title">震惊！某国即将崩溃，内部消息曝光</div><div class="time">14:32</div></div><div class="bottom"><div class="kw">内部消息</div><div class="cat tag-incite">煽动</div><div class="author">某某说天下</div></div></div>
+    <div class="log-item"><div class="top"><div class="title">医院不想让你知道的秘方</div><div class="time">14:28</div></div><div class="bottom"><div class="kw">秘方</div><div class="cat tag-health">养生骗局</div><div class="author">养生堂</div></div></div>
+    <div class="log-item"><div class="top"><div class="title">99%的人不知道！速看马上删</div><div class="time">14:15</div></div><div class="bottom"><div class="kw">速看</div><div class="cat tag-click">标题党</div><div class="author">热搜精选</div></div></div>
   </div>
   <div class="bottom-tab">
     <div class="tab-item" onclick="switchTab('home')"><div class="icon">🏠</div><div class="label">首页</div></div>
@@ -472,212 +382,194 @@ body { font-family: -apple-system, "PingFang SC", "Helvetica Neue", sans-serif; 
   </div>
 </div>
 
-<!-- ==================== 设置 ==================== -->
+<!-- 设置 -->
 <div class="screen" id="screen-settings">
   <div class="status-bar"><span>13:24</span><span>📶 🔋</span></div>
-  <div class="settings">
+  <div class="settings-body">
     <div class="header">设置</div>
-
-    <div class="setting-card">
-      <div class="info">
-        <div class="name">守护开关</div>
-        <div class="desc">关闭需要输入子女密码</div>
-      </div>
-      <div class="toggle on" onclick="this.classList.toggle('on');this.classList.toggle('off')">
-        <div class="knob"></div>
-      </div>
+    <div class="card">
+      <div class="card-row"><div class="info"><div class="name">守护开关</div></div><div class="toggle on" onclick="toggleSwitch(this)"><div class="knob"></div></div></div>
+      <div class="card-row"><div class="info"><div class="name">跳过时提示</div></div><div class="toggle on" onclick="toggleSwitch(this)"><div class="knob"></div></div></div>
     </div>
-
-    <div class="setting-card">
-      <div class="info">
-        <div class="name">跳过时提示</div>
-        <div class="desc">跳过视频时显示提示信息</div>
-      </div>
-      <div class="toggle on" onclick="this.classList.toggle('on');this.classList.toggle('off')">
-        <div class="knob"></div>
-      </div>
+    <div class="card">
+      <div class="card-row"><div class="info"><div class="name">守护平台：抖音</div></div></div>
+      <div class="card-row"><div class="info"><div class="name">过滤模式：严格</div></div></div>
     </div>
-
-    <div class="setting-card">
-      <div class="info">
-        <div class="name">过滤模式</div>
-      </div>
-      <div style="color:#757575">严格</div>
-    </div>
-
-    <div class="setting-card" onclick="showScreen('family')">
-      <div class="info">
-        <div class="name">子女管理</div>
-        <div class="desc">管理屏蔽词、黑名单（需密码）</div>
-      </div>
-      <div class="arrow">›</div>
-    </div>
-
-    <div class="setting-card">
-      <div class="info">
-        <div class="name">使用帮助</div>
-      </div>
-      <div class="arrow">›</div>
-    </div>
-
-    <div class="version">v1.0.0</div>
+    <button class="btn-primary" onclick="showPasswordModal();setTimeout(()=>showScreen('family'),800)">子女管理</button>
+    <button class="btn-outline" onclick="showScreen('help')">使用帮助</button>
+    <div class="version">版本 v1.0.0</div>
   </div>
   <div class="bottom-tab">
     <div class="tab-item" onclick="switchTab('home')"><div class="icon">🏠</div><div class="label">首页</div></div>
     <div class="tab-item" onclick="switchTab('records')"><div class="icon">📋</div><div class="label">记录</div></div>
     <div class="tab-item active" onclick="switchTab('settings')"><div class="icon">⚙️</div><div class="label">设置</div></div>
   </div>
+  <div class="modal-overlay" id="modal-pwd">
+    <div class="modal">
+      <h3>输入子女密码</h3>
+      <input type="password" placeholder="请输入密码">
+      <div class="error" id="pwd-error">密码错误</div>
+      <div class="btns">
+        <button class="btn-cancel" onclick="hideModal('modal-pwd')">取消</button>
+        <button class="btn-ok" onclick="hideModal('modal-pwd')">确定</button>
+      </div>
+    </div>
+  </div>
 </div>
 
-<!-- ==================== 子女管理 ==================== -->
+<!-- 帮助 -->
+<div class="screen" id="screen-help">
+  <div class="status-bar"><span>13:24</span><span>📶 🔋</span></div>
+  <div class="sub-header"><span class="back" onclick="showScreen('settings')">‹</span>使用帮助</div>
+  <div class="help-body">银龄守护使用说明
+
+【首次使用】
+1. 完成引导流程，开启无障碍权限
+2. 让子女设置管理密码，检查屏蔽词库
+3. 打开抖音，守护将自动在后台运行
+
+【日常使用】
+• 首页可查看守护状态、今日拦截数和最近拦截
+• 刷抖音时，命中屏蔽词或黑名单的视频会自动跳过
+• 跳过时显示「已跳过可疑内容」浮层提示
+
+【子女管理】
+• 可添加/删除屏蔽词，按分类筛选
+• 支持白名单、黑名单、词库导入/导出
+
+【隐私说明】
+• 所有数据仅存本地，不上传云端</div>
+</div>
+
+<!-- 子女管理 -->
 <div class="screen" id="screen-family">
   <div class="status-bar"><span>13:24</span><span>📶 🔋</span></div>
-  <div class="family">
-    <div class="family-header">
-      <span class="back" onclick="showScreen('settings')">‹</span>
-      子女管理
+  <div class="sub-header"><span class="back" onclick="showScreen('settings')">‹</span>子女管理</div>
+  <div class="sub-body">
+    <div class="family-stats">
+      <div class="family-stat"><div class="num green">146</div><div class="label">屏蔽词</div></div>
+      <div class="family-stat"><div class="num orange">5</div><div class="label">黑名单</div></div>
+      <div class="family-stat"><div class="num gray">2</div><div class="label">白名单</div></div>
     </div>
-    <div class="family-body">
-      <div class="family-stats">
-        <div class="family-stat"><div class="num green">142</div><div class="label">屏蔽词</div></div>
-        <div class="family-stat"><div class="num orange">5</div><div class="label">黑名单</div></div>
-        <div class="family-stat"><div class="num gray">2</div><div class="label">白名单</div></div>
-      </div>
-
-      <div class="setting-card" onclick="showScreen('keywords')">
-        <div class="info"><div class="name">屏蔽词管理</div></div>
-        <div class="arrow">›</div>
-      </div>
-      <div class="setting-card" onclick="showScreen('blacklist')">
-        <div class="info"><div class="name">账号黑名单</div></div>
-        <div class="arrow">›</div>
-      </div>
-      <div class="setting-card">
-        <div class="info"><div class="name">导出词库</div></div>
-        <div class="arrow">›</div>
-      </div>
-    </div>
+    <div class="menu-card" onclick="showScreen('keywords')"><div class="name">屏蔽词管理</div><div class="arrow">›</div></div>
+    <div class="menu-card" onclick="showScreen('blacklist')"><div class="name">账号黑名单</div><div class="arrow">›</div></div>
+    <div class="menu-card" onclick="showScreen('whitelist')"><div class="name">白名单</div><div class="arrow">›</div></div>
+    <div class="menu-card"><div class="name">导入词库</div><div class="arrow">›</div></div>
+    <div class="menu-card"><div class="name">导出词库</div><div class="arrow">›</div></div>
   </div>
 </div>
 
-<!-- ==================== 屏蔽词管理 ==================== -->
+<!-- 屏蔽词 -->
 <div class="screen" id="screen-keywords">
   <div class="status-bar"><span>13:24</span><span>📶 🔋</span></div>
-  <div class="family" style="position:relative">
-    <div class="family-header">
-      <span class="back" onclick="showScreen('family')">‹</span>
-      屏蔽词管理
-    </div>
-    <div class="kw-chips">
-      <div class="kw-chip active" onclick="setKwFilter(this)">全部</div>
-      <div class="kw-chip" onclick="setKwFilter(this)">养生骗局</div>
-      <div class="kw-chip" onclick="setKwFilter(this)">谣言</div>
-      <div class="kw-chip" onclick="setKwFilter(this)">煽动</div>
-      <div class="kw-chip" onclick="setKwFilter(this)">标题党</div>
-    </div>
-    <div class="kw-list">
-      <div class="kw-item"><div class="info"><div class="word">治百病</div><div class="meta"><div class="cat-tag tag-health">养生骗局</div><div class="count">拦截 12 次</div></div></div><div class="del">🗑</div></div>
-      <div class="kw-item"><div class="info"><div class="word">祖传秘方</div><div class="meta"><div class="cat-tag tag-health">养生骗局</div><div class="count">拦截 8 次</div></div></div><div class="del">🗑</div></div>
-      <div class="kw-item"><div class="info"><div class="word">内部消息</div><div class="meta"><div class="cat-tag tag-rumor">谣言</div><div class="count">拦截 15 次</div></div></div><div class="del">🗑</div></div>
-      <div class="kw-item"><div class="info"><div class="word">央视不敢播</div><div class="meta"><div class="cat-tag tag-rumor">谣言</div><div class="count">拦截 6 次</div></div></div><div class="del">🗑</div></div>
-      <div class="kw-item"><div class="info"><div class="word">崩溃</div><div class="meta"><div class="cat-tag tag-incite">煽动</div><div class="count">拦截 22 次</div></div></div><div class="del">🗑</div></div>
-      <div class="kw-item"><div class="info"><div class="word">震惊</div><div class="meta"><div class="cat-tag tag-click">标题党</div><div class="count">拦截 31 次</div></div></div><div class="del">🗑</div></div>
-      <div class="kw-item"><div class="info"><div class="word">速看</div><div class="meta"><div class="cat-tag tag-click">标题党</div><div class="count">拦截 18 次</div></div></div><div class="del">🗑</div></div>
-      <div class="kw-item"><div class="info"><div class="word">99%的人不知道</div><div class="meta"><div class="cat-tag tag-click">标题党</div><div class="count">拦截 9 次</div></div></div><div class="del">🗑</div></div>
-    </div>
-    <button class="fab" onclick="showAddKeywordModal()">+</button>
-    <!-- 添加屏蔽词弹窗 -->
-    <div class="modal-overlay" id="modal-add-kw">
-      <div class="modal">
-        <h3>添加屏蔽词</h3>
-        <input type="text" placeholder="输入关键词（1-20字）" id="input-kw">
-        <select id="select-cat">
-          <option value="health">养生骗局</option>
-          <option value="rumor">谣言</option>
-          <option value="incite">煽动</option>
-          <option value="click">标题党</option>
-        </select>
-        <div class="btns">
-          <button class="btn-cancel" onclick="hideModal('modal-add-kw')">取消</button>
-          <button class="btn-ok" onclick="hideModal('modal-add-kw')">确认添加</button>
-        </div>
+  <div class="sub-header"><span class="back" onclick="showScreen('family')">‹</span>屏蔽词管理</div>
+  <div class="kw-chips">
+    <div class="kw-chip active" onclick="setKwFilter(this)">全部</div>
+    <div class="kw-chip" onclick="setKwFilter(this)">养生骗局</div>
+    <div class="kw-chip" onclick="setKwFilter(this)">谣言</div>
+    <div class="kw-chip" onclick="setKwFilter(this)">煽动</div>
+    <div class="kw-chip" onclick="setKwFilter(this)">标题党</div>
+  </div>
+  <div style="flex:1;overflow-y:auto;padding-bottom:80px">
+    <div class="kw-item"><div class="info"><div class="word">治百病</div><div class="meta"><div class="cat-tag tag-health">养生骗局</div><div class="count">拦截 12 次</div></div></div><div>🗑</div></div>
+    <div class="kw-item"><div class="info"><div class="word">内部消息</div><div class="meta"><div class="cat-tag tag-rumor">谣言</div><div class="count">拦截 15 次</div></div></div><div>🗑</div></div>
+    <div class="kw-item"><div class="info"><div class="word">震惊</div><div class="meta"><div class="cat-tag tag-click">标题党</div><div class="count">拦截 31 次</div></div></div><div>🗑</div></div>
+  </div>
+  <button class="fab" onclick="showModal('modal-add-kw')">+</button>
+  <div class="modal-overlay" id="modal-add-kw">
+    <div class="modal">
+      <h3>添加屏蔽词</h3>
+      <input type="text" placeholder="输入关键词（1-20字）">
+      <div class="radio-group">
+        <label><input type="radio" name="cat" checked> 养生骗局</label>
+        <label><input type="radio" name="cat"> 谣言</label>
+        <label><input type="radio" name="cat"> 煽动</label>
+        <label><input type="radio" name="cat"> 标题党</label>
+      </div>
+      <div class="btns">
+        <button class="btn-cancel" onclick="hideModal('modal-add-kw')">取消</button>
+        <button class="btn-ok" onclick="hideModal('modal-add-kw')">确认添加</button>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ==================== 黑名单 ==================== -->
+<!-- 黑名单 -->
 <div class="screen" id="screen-blacklist">
   <div class="status-bar"><span>13:24</span><span>📶 🔋</span></div>
-  <div class="family" style="position:relative">
-    <div class="family-header">
-      <span class="back" onclick="showScreen('family')">‹</span>
-      账号黑名单
-    </div>
-    <div class="kw-list" style="padding-top:16px">
-      <div class="bl-item"><div class="name">某某养生堂</div><div class="del">🗑</div></div>
-      <div class="bl-item"><div class="name">真相揭秘</div><div class="del">🗑</div></div>
-      <div class="bl-item"><div class="name">爱国先锋</div><div class="del">🗑</div></div>
-      <div class="bl-item"><div class="name">老中医说</div><div class="del">🗑</div></div>
-      <div class="bl-item"><div class="name">热搜精选</div><div class="del">🗑</div></div>
-    </div>
-    <button class="fab" onclick="showAddBlacklistModal()">+</button>
-    <!-- 添加黑名单弹窗 -->
-    <div class="modal-overlay" id="modal-add-bl">
-      <div class="modal">
-        <h3>添加账号</h3>
-        <input type="text" placeholder="输入作者昵称" id="input-bl">
-        <div class="btns">
-          <button class="btn-cancel" onclick="hideModal('modal-add-bl')">取消</button>
-          <button class="btn-ok" onclick="hideModal('modal-add-bl')">确认添加</button>
-        </div>
+  <div class="sub-header"><span class="back" onclick="showScreen('family')">‹</span>账号黑名单</div>
+  <div style="flex:1;overflow-y:auto;padding:16px 0 80px">
+    <div class="bl-item"><div style="flex:1">某某养生堂</div><div>🗑</div></div>
+    <div class="bl-item"><div style="flex:1">真相揭秘</div><div>🗑</div></div>
+  </div>
+  <button class="fab" onclick="showModal('modal-add-bl')">+</button>
+  <div class="modal-overlay" id="modal-add-bl">
+    <div class="modal">
+      <h3>添加账号</h3>
+      <input type="text" placeholder="输入作者昵称">
+      <div class="btns">
+        <button class="btn-cancel" onclick="hideModal('modal-add-bl')">取消</button>
+        <button class="btn-ok" onclick="hideModal('modal-add-bl')">确定</button>
       </div>
     </div>
   </div>
 </div>
 
-</div><!-- phone -->
-</div><!-- phone-area -->
+<!-- 白名单 -->
+<div class="screen" id="screen-whitelist">
+  <div class="status-bar"><span>13:24</span><span>📶 🔋</span></div>
+  <div class="sub-header"><span class="back" onclick="showScreen('family')">‹</span>白名单</div>
+  <div style="flex:1;overflow-y:auto;padding:16px 0 80px">
+    <div class="wl-item"><div style="flex:1"><div>官方发布</div><div class="type">关键词白名单</div></div><div>🗑</div></div>
+    <div class="wl-item"><div style="flex:1"><div>央视新闻</div><div class="type">作者白名单</div></div><div>🗑</div></div>
+  </div>
+  <button class="fab" onclick="showModal('modal-add-wl')">+</button>
+  <div class="modal-overlay" id="modal-add-wl">
+    <div class="modal">
+      <h3>添加白名单</h3>
+      <p class="sub">选择类型后输入关键词或作者昵称</p>
+      <div class="btns" style="justify-content:center;gap:12px;margin-bottom:12px">
+        <button class="btn-ok" style="flex:1">关键词</button>
+        <button class="btn-outline" style="flex:1;margin:0;padding:10px">作者</button>
+      </div>
+      <input type="text" placeholder="输入内容">
+      <div class="btns">
+        <button class="btn-cancel" onclick="hideModal('modal-add-wl')">取消</button>
+        <button class="btn-ok" onclick="hideModal('modal-add-wl')">确定</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+</div>
 
 <script>
+const TAB_MAP = {
+  ob1:'引导1',ob2:'引导2',ob3:'引导3',ob4:'引导4',
+  home:'首页',records:'记录',settings:'设置',help:'帮助',
+  family:'子女管理',keywords:'屏蔽词',blacklist:'黑名单',whitelist:'白名单'
+};
 function showScreen(name) {
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
   document.getElementById('screen-' + name).classList.add('active');
-  // 更新顶部 tabs
-  document.querySelectorAll('.toolbar .tab').forEach(t => t.classList.remove('active'));
-  const map = {
-    'onboarding1':'引导1','onboarding2':'引导2','onboarding3':'引导3','onboarding4':'引导4',
-    'home':'首页','records':'记录','settings':'设置',
-    'family':'子女管理','keywords':'屏蔽词','blacklist':'黑名单'
-  };
   document.querySelectorAll('.toolbar .tab').forEach(t => {
-    if (t.textContent === map[name]) t.classList.add('active');
+    t.classList.toggle('active', t.textContent === TAB_MAP[name]);
   });
 }
-
-function switchTab(name) {
-  showScreen(name);
-}
-
+function switchTab(name) { showScreen(name); }
 function setFilter(el) {
   el.parentElement.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
   el.classList.add('active');
 }
-
 function setKwFilter(el) {
   el.parentElement.querySelectorAll('.kw-chip').forEach(c => c.classList.remove('active'));
   el.classList.add('active');
 }
-
-function showAddKeywordModal() {
-  document.getElementById('modal-add-kw').classList.add('show');
-}
-function showAddBlacklistModal() {
-  document.getElementById('modal-add-bl').classList.add('show');
-}
-function hideModal(id) {
-  document.getElementById(id).classList.remove('show');
-}
+function toggleSwitch(el) { el.classList.toggle('on'); el.classList.toggle('off'); }
+function showModal(id) { document.getElementById(id).classList.add('show'); }
+function hideModal(id) { document.getElementById(id).classList.remove('show'); }
+function showPasswordModal() { showModal('modal-pwd'); }
 </script>
 </body>
 </html>
