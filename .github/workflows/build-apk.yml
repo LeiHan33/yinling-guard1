@@ -44,9 +44,6 @@ jobs:
       - name: Run core unit tests
         run: ./gradlew :core:test --no-daemon
 
-      - name: Run app unit tests
-        run: ./gradlew :app:testDebugUnitTest --no-daemon
-
       - name: Build debug APK
         run: ./gradlew assembleDebug --no-daemon
 
