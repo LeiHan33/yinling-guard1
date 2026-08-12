@@ -25,7 +25,7 @@ data class AppConfig(
     val targetApp: String = "douyin",
     val firstGuardDate: String? = null,
     val familyPasswordHash: String? = null,
-    val appVersion: String = "1.0.2"
+    val appVersion: String = "1.0.3"
 )
 
 data class KeywordEntry(
@@ -102,7 +102,8 @@ data class ImportBackupResult(
 data class VideoSnapshot(
     val title: String,
     val author: String,
-    val packageName: String
+    val packageName: String,
+    val allText: String = ""
 )
 
 data class MatchResult(

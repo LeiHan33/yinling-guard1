@@ -3,6 +3,8 @@ package com.yinling.guard.service
 import android.accessibilityservice.AccessibilityService
 import android.accessibilityservice.GestureDescription
 import android.graphics.Path
+import android.os.Handler
+import android.os.Looper
 import android.view.accessibility.AccessibilityEvent
 import com.yinling.guard.R
 import com.yinling.guard.core.engine.ContentMatcher
@@ -17,21 +19,42 @@ class GuardAccessibilityService : AccessibilityService() {
     private var skipToastOverlay: SkipToastOverlay? = null
     private var lastSignature = ""
     private var lastActionAt = 0L
+    private val handler = Handler(Looper.getMainLooper())
+    private var pendingEvaluation: Runnable? = null
 
     override fun onAccessibilityEvent(event: AccessibilityEvent?) {
         if (event == null) return
         if (event.packageName?.toString() != ContentMatcher.DOUYIN_PACKAGE) return
 
+        if (event.eventType == AccessibilityEvent.TYPE_VIEW_SCROLLED) {
+            lastSignature = ""
+        }
+
+        scheduleEvaluation()
+    }
+
+    private fun scheduleEvaluation() {
+        pendingEvaluation?.let { handler.removeCallbacks(it) }
+        pendingEvaluation = Runnable { evaluateCurrentWindow() }
+        handler.postDelayed(pendingEvaluation!!, EVALUATION_DELAY_MS)
+    }
+
+    private fun evaluateCurrentWindow() {
         val root = rootInActiveWindow ?: return
         val parsed = DouyinNodeParser.parse(root)
-        val signature = "${parsed.title}|${parsed.author}"
-        if (signature.isBlank() || signature == "|" || signature == lastSignature) return
+        val signature = "${parsed.title}|${parsed.author}|${parsed.allText}"
+        if (signature.isBlank() || signature == "||" || signature == lastSignature) return
         lastSignature = signature
 
         val repo = ServiceLocator.repository(this)
         val config = repo.loadConfig()
         val decision = guardEngine.evaluate(
-            VideoSnapshot(parsed.title, parsed.author, ContentMatcher.DOUYIN_PACKAGE),
+            VideoSnapshot(
+                title = parsed.title,
+                author = parsed.author,
+                packageName = ContentMatcher.DOUYIN_PACKAGE,
+                allText = parsed.allText
+            ),
             config.guardEnabled,
             repo.loadKeywords().keywords,
             repo.loadBlacklist().accounts,
@@ -72,6 +95,8 @@ class GuardAccessibilityService : AccessibilityService() {
     }
 
     companion object {
+        private const val EVALUATION_DELAY_MS = 350L
+
         @Volatile
         var instance: GuardAccessibilityService? = null
 
@@ -90,6 +115,8 @@ class GuardAccessibilityService : AccessibilityService() {
     }
 
     override fun onDestroy() {
+        pendingEvaluation?.let { handler.removeCallbacks(it) }
+        pendingEvaluation = null
         skipToastOverlay?.dismiss()
         skipToastOverlay = null
         instance = null

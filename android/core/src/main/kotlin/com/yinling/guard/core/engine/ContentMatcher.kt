@@ -21,11 +21,12 @@ class ContentMatcher {
 
         val title = snapshot.title.trim()
         val author = snapshot.author.trim()
-        if (title.isEmpty() && author.isEmpty()) {
+        val searchableText = buildSearchableText(title, author, snapshot.allText)
+        if (searchableText.isBlank()) {
             return MatchResult(matched = false)
         }
 
-        if (isWhitelisted(title, author, whitelist)) {
+        if (isWhitelisted(title, author, searchableText, whitelist)) {
             return MatchResult(matched = false)
         }
 
@@ -41,7 +42,7 @@ class ContentMatcher {
         }
 
         keywords.forEach { entry ->
-            if (title.contains(entry.word, ignoreCase = true)) {
+            if (searchableText.contains(entry.word, ignoreCase = true)) {
                 return MatchResult(
                     matched = true,
                     keyword = entry.word,
@@ -54,10 +55,21 @@ class ContentMatcher {
         return MatchResult(matched = false)
     }
 
-    private fun isWhitelisted(title: String, author: String, whitelist: List<WhitelistEntry>): Boolean {
+    private fun buildSearchableText(title: String, author: String, allText: String): String {
+        if (allText.isNotBlank()) return allText
+        return listOf(title, author).filter { it.isNotBlank() }.distinct().joinToString(" ")
+    }
+
+    private fun isWhitelisted(
+        title: String,
+        author: String,
+        searchableText: String,
+        whitelist: List<WhitelistEntry>
+    ): Boolean {
         return whitelist.any { entry ->
             when (entry.type) {
                 "keyword" -> title.contains(entry.value, ignoreCase = true)
+                    || searchableText.contains(entry.value, ignoreCase = true)
                 "author" -> author.contains(entry.value, ignoreCase = true)
                 else -> false
             }

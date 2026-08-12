@@ -2,11 +2,20 @@ package com.yinling.guard.core.engine
 
 import org.junit.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
 class VideoTextParserTest {
 
     private val parser = VideoTextParser()
+
+    @Test
+    fun `filters douyin ui chrome before parsing`() {
+        val result = parser.parse(listOf("关注", "点赞", "1234", "震惊！某国即将崩溃", "@作者昵称"))
+        assertEquals("震惊！某国即将崩溃", result.title)
+        assertTrue(result.allText.contains("震惊"))
+        assertFalse(result.allText.contains("关注"))
+    }
 
     @Test
     fun `parses title and author from texts`() {

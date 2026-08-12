@@ -29,6 +29,24 @@ class ContentMatcherTest {
     // ========== 关键词匹配 ==========
 
     @Test
+    fun `keyword match when block word appears in author nickname`() {
+        val result = matcher.match(snap("普通视频", "治百病养生堂"), listOf(kw("治百病")), emptyList(), emptyList())
+        assertTrue(result.matched)
+        assertEquals("治百病", result.keyword)
+    }
+
+    @Test
+    fun `keyword match uses allText when provided`() {
+        val result = matcher.match(
+            VideoSnapshot("", "", ContentMatcher.DOUYIN_PACKAGE, allText = "这条视频提到内部消息"),
+            listOf(kw("内部消息")),
+            emptyList(),
+            emptyList()
+        )
+        assertTrue(result.matched)
+    }
+
+    @Test
     fun `keyword match when title contains keyword`() {
         val result = matcher.match(snap("这个能治百病"), listOf(kw("治百病")), emptyList(), emptyList())
         assertTrue(result.matched)
