@@ -21,9 +21,6 @@
 | **中文** | **[⬇️ 下载 APK v1.0.2](https://github.com/LeiHan33/yinling-guard1/releases/download/v1.0.2/yinling-guard-v1.0.2-debug.apk)** — 修复设置页闪退 |
 | **English** | **[⬇️ Download APK v1.0.2](https://github.com/LeiHan33/yinling-guard1/releases/download/v1.0.2/yinling-guard-v1.0.2-debug.apk)** — Fixes Settings crash |
 
-> **自动构建 Auto-build：** 推送 `v*` 标签到 `main` 后，[GitHub Actions](https://github.com/LeiHan33/yinling-guard1/actions/workflows/build-apk.yml) 自动构建并发布 APK。  
-> Push a `v*` tag to `main` to trigger an automated APK build and release.
-
 ---
 
 ## 🎨 UI 演示 · UI Preview
@@ -37,9 +34,6 @@
 12 个界面可交互预览（引导、首页、记录、设置、帮助、子女管理、白名单等），支持 **中 / EN** 语言切换。
 
 Interactive preview of 12 screens (onboarding, home, records, settings, help, family manage, whitelist, etc.) with **CN / EN** toggle.
-
-> 修改 `android/ui-preview.html` 推送到 `main` 后约 1 分钟自动同步到 GitHub Pages。  
-> Changes to `android/ui-preview.html` auto-sync to GitHub Pages within ~1 minute.
 
 ---
 
@@ -108,12 +102,6 @@ cd yinling-guard1/android
 ```powershell
 powershell -ExecutionPolicy Bypass -File android/scripts/build.ps1 -Task all
 ```
-
----
-
-## 👤 Author · 作者
-
-**[LeiHan33](https://github.com/LeiHan33)** — 项目唯一维护者与贡献者 · Sole maintainer and contributor
 
 ---
 
