@@ -14,7 +14,9 @@
 
 ## 🎨 UI 演示 / UI Preview
 
-**[👉 在线预览 UI 原型](https://leihan33.github.io/yinling-guard1/ui-preview.html)**
+**[👉 在线预览 UI 原型](https://leihan33.github.io/yinling-guard1/)** · [备用链接](https://leihan33.github.io/yinling-guard1/ui-preview.html)
+
+> 修改 `android/ui-preview.html` 并推送到 `main` 后，GitHub Actions 会自动同步到在线预览页（约 1 分钟）。
 
 ---
 
