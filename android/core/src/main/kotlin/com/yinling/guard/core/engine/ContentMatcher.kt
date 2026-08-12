@@ -26,7 +26,7 @@ class ContentMatcher {
             return MatchResult(matched = false)
         }
 
-        if (isWhitelisted(title, author, searchableText, whitelist)) {
+        if (isWhitelisted(title, author, whitelist)) {
             return MatchResult(matched = false)
         }
 
@@ -63,13 +63,11 @@ class ContentMatcher {
     private fun isWhitelisted(
         title: String,
         author: String,
-        searchableText: String,
         whitelist: List<WhitelistEntry>
     ): Boolean {
         return whitelist.any { entry ->
             when (entry.type) {
                 "keyword" -> title.contains(entry.value, ignoreCase = true)
-                    || searchableText.contains(entry.value, ignoreCase = true)
                 "author" -> author.contains(entry.value, ignoreCase = true)
                 else -> false
             }
